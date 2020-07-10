@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+/*Formatação da pagina de login*/
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image:url(../imagens/FundoConta5.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Formatação do Cabeçalho*/
+
+
+header#HeaderConta{
+    background-color:rgb(211, 38, 38);
+    height: 85px;
+    padding-left:20px;
+}
+div#TextoCabeçalho{
+    font-family: 'Sedgwick Ave';
+    letter-spacing: 4px;
+    color: white;
+    font-size: 26px;
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+img#IconeCabeçalho{
+    width: 48px;
+    padding-top: 20px;
+    float: left;
+    position: relative;
+}
+
+nav#MenuLogin {
+        display: block;
+    }
+
+
+    nav#MenuLogin ul{
+        list-style: none;
+        position: absolute;
+        top: 0px;
+        left: 1550px;
+    }
+    
+    
+    nav#MenuLogin li{
+        font-family:  'Raleway';
+        font-size: 19pt;
+        display: inline-block;
+        padding-right: 35px;
+        margin-top: 10px;
+        transition: background-color 1s;
+        
+    }
+
+    nav#MenuLogin a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    
+    
+    nav#MenuLogin a:hover{
+        color: #000000;
+        transition: 0.5s;
+    }
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*Formatação do Formulario de Login*/
+
+
+    div#CaixaAlterações{
+        width: 810px;
+        height: 810px;
+        border: 1px solid rgb(152, 158, 158);
+        border-radius: 80px 0px;
+        color: #fff;
+        background-color: rgba(152, 158, 158, 0.75);
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        padding: 68px 28px;
+        margin-top: 35px;
+    }
+
+
+    div#CaixaAlterações p{
+        margin: 0;
+        padding: 0;
+        font-family: 'Raleway', cursive;
+        color: black;
+        font-size: 20px;
+        margin-bottom: 21px;
+        font-weight: bold;
+    }
+    
+    div#CaixaAlterações p.TextoCaixaLogin{
+        font-size: 26px;
+        padding-left: 220px;
+        font-weight: normal;
+    }
+    
+    
+    
+    div#CaixaAlterações input{
+        width: 100%;
+        margin-bottom: 42px;
+    }
+    
+    div#CaixaAlterações input[type="email"], input[type="password"], input[type="text"], input[type="tel"]{
+        border: none;
+        border-bottom: 1px solid white;
+        background: rgba(255, 255, 255, 0.75);
+        height: 40px;
+        font-size: 16px;
+        position: relative;
+        border-radius: 20px;
+        
+    }
+
+
+
+
+
+    div#CaixaAlterações input[type="submit"]{
+        border: none;
+        outline: none;
+        height: 80px;
+        color: #000;
+        background: rgb(149, 196, 89);
+        border-radius: 50px;
+        font-family: 'Raleway', cursive;
+        font-size: 26px;
+        width: 228px;
+        margin-left: 35%;
+        margin-top: -10px;
+    }
+    
+    div#CaixaAlterações input[type="submit"]:hover {
+        cursor: pointer;
+        background: rgb(115, 151, 67);
+        transition: 0.3s;
+    }
+    
+    div#CaixaAlterações a{
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 200px;
+        line-height: 20px;
+        color: #4b4b4b;
+        
+    }
+    /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
