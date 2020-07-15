@@ -1,0 +1,14 @@
+body {
+  color: #333333;
+  font-family: 'Roboto', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #E8FFD3;
+}
+
+a {
+  text-decoration: none;
+  color: #230A59;
+}
