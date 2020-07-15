@@ -1,120 +1,154 @@
-@font-face{
-	font-family: Sedgwick Ave;
-	src: url(SedgwickAve-Regular.ttf);
+@charset "UTF-8";
+
+/*Formatação da pagina de Cadastro*/
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
-@font-face{
-	font-family: Raleway;
-	src: url(Raleway-Regular.ttf);
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Formatação do Cabeçalho*/
+
+
+header#HeaderCadastro{
+    background-color:rgb(211, 38, 38);
+    height: 85px;
+    padding-left:20px;
 }
-@font-face{
-	font-family: Rochester;
-	src: url(Rochester-Regular.ttf);
+div#TextoCabeçalho{
+    font-family: 'Sedgwick Ave';
+    letter-spacing: 4px;
+    color: white;
+    font-size: 26px;
+    padding-top: 30px;
+    padding-left: 50px;
 }
 
-.cabecalho{
-	background-color: #d32626;
-	height: 85px;
-	padding-left: 20px;
-	margin-left: 0px;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 1440px;
+img#IconeCabeçalho{
+    width: 48px;
+    padding-top: 20px;
+    float: left;
+    position: relative;
 }
 
-.imagem1{
-	width: 40px;
-	padding-top: 20px;
-	float: left;
-	position: relative;
-}
+nav#MenuCadastro {
+        display: block;
+    }
 
-.menu1{
-	color: white;
-	font-size: 26px;
-	padding-top: 30px;
-	padding-left: 50px;
-	font-family: Sedgwick Ave;
-}
 
-.menu2{
-	padding-top: 0px;
-	padding-bottom: 30px;
-	padding-left: 1300px;
-	font-family: Raleway;
-}
+    nav#MenuCadastro ul{
+        list-style: none;
+        position: absolute;
+        top: 0px;
+        left: 1590px;
+    }
+    
+    
+    nav#MenuCadastro li{
+        font-family:  'Raleway';
+        font-size: 19pt;
+        display: inline-block;
+        padding-right: 70px;
+        margin-top: 10px;
+        transition: background-color 1s;
+        
+    }
 
-.menu3{
-	color: white;
-	text-decoration: none;
-}
+    nav#MenuCadastro a{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    
+    
+    nav#MenuCadastro a:hover{
+        color: #000000;
+        transition: 0.5s;
+    }
 
-.conteudo{
-	background-image: url(../imagens/bg.jpeg);
-	background-attachment: fixed;
-	background-size: cover;
-	background-repeat: repeat;
-	background-position: right bottom;
-	height: 600px;
-	padding-top: 100px;
-	margin-top: 0px;
-}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.centro{
-	background-color: #abada7;
-	width: 40%;
-	height: 500px;
-	margin-left: 400px;
-	margin-top: 70px;
-	margin-bottom: 100px;
-	font-size: 22px;
-	border-radius: 20px 20px 20px 20px;
-	font-family: Rochester;
-}
 
-.cad{
-	text-align: center;
-	font-size: 44px;
-}
 
-.form{
-	font-size: 44px;
-	padding-left: 20px;
-}
+/*Formatação do Formulario de Cadastro*/
 
-.conf1{
-	width: 20%;
-	padding-left: 40%;
-}
 
-.conf2{
-	background-color: #8cba51;
-	text-align: center;
-	border-radius: 20px 20px 20px 20px;
-	font-family: Rochester;
-	font-size: 44px;
-}
+    div#CaixaCadastro{
+        width: 810px;
+        height: 1000px;
+        border: 1px solid rgb(152, 158, 158);
+        border-radius: 80px 0px;
+        color: #fff;
+        background-color: rgba(76, 173, 47, 0.75);
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        padding: 68px 28px;
+        margin-top: 8%;
+    }
 
-.conf3{
-	border-radius: 20px 20px 20px 20px;
-	background-color: #fffcfc;
-	height: 40px;
-	width: 60%;
-}
 
-.rodape{
-	background-color: #d32626;
-	height: 85px;
-}
+    div#CaixaCadastro p{
+        margin: 0;
+        padding: 0;
+        font-family: 'Raleway', cursive;
+        color: black;
+        font-size: 20px;
+        margin-bottom: 21px;
+        font-weight: bold;
+    }
+     
+    
+    
+    div#CaixaCadastro input{
+        width: 100%;
+        margin-bottom: 42px;
+    }
+    
+div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
+        border: none;
+        border-bottom: 1px solid white;
+        background: rgba(255, 255, 255, 1);
+        height: 40px;
+        font-size: 16px;
+        position: relative;
+		border-radius: 9px;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        
+    }
 
-.imagem2{
-	height: 60px;
-	padding-left: 45%;
-	padding-top: 20px;
-}
 
-.imagem3{
-	height: 60px;
-	padding-left: 15px;
-	padding-top: 10px;
-}
+
+
+
+    div#CaixaCadastro input[type="submit"]{
+        border: none;
+        outline: none;
+        height: 80px;
+		color: #000;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        background: white;
+        border-radius: 20px;
+        font-family: 'Raleway', cursive;
+        font-size: 26px;
+        width: 228px;
+        margin-left: 35%;
+        /* margin-top: -5px; */
+    }
+    
+    div#CaixaCadastro input[type="submit"]:hover {
+        cursor: pointer;
+        background: rgb(196, 197, 196);
+		transition: 0.3s;
+    }
+    
+    div#CaixaCadastro p#OpcaodeEntrar{
+	   font-weight: lighter;
+	   padding-left: 15%;
+    }
+    /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

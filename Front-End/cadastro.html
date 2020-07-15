@@ -1,59 +1,45 @@
-<!doctype html>
-<html lang="pt-br">
-	<head>
-		<title> cadastro </title>
-		<meta charset="utf-8">
-		<meta name="description" content="cadastro de clientes">
-		<link rel="stylesheet" type="text/css" href="CSS/reset.css">
-		<link rel="stylesheet" type="text/css" href="CSS/estilocadastro.css">
-	</head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro </title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Rochester&family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link href="css/estilocadastro.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header id="HeaderCadastro">
+        <img id="IconeCabeçalho" src="imagens/icone_cabecalho.png" alt="Icone Logo Cabeçalho">
+        <div id="TextoCabeçalho">
+            Feira ASCII
+        </div>
+        <nav id="MenuCadastro">
+            <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Entrar </a></li>
+            </ul>
+        </nav>
+    </header>
 
-	<body>
 
-		<div id="principal">
-
-			<header class="cabecalho">
-				<nav>
-					<ul>
-						<img src="imagens/icone.png" alt="" class="imagem1" />
-						<li class="menu1">Feira AscII</li>
-						<li class="menu2"><a href="" class="menu3">Voltar</a></li>
-					</ul>
-				</nav>
-			</header>
-
-			<main class="conteudo">
-
-				<section>
-
-					<form method="" action="">
-						<div class="centro">
-							<p class="cad">Cadastro</p>
-							<p class="form">Nome : <input type="" name="" class="conf3"></p> 
-							<p class="form">CPF : <input type="" name="" class="conf3"></p>
-							<p class="form">E-mail : <input type="" name="" class="conf3"></p>
-							<p class="form">Senha : <input type="" name="" class="conf3"></p>
-							<p class="form">Endereço : <input type="" name="" class="conf3"></p>
-							<p class="form">Celular : <input type="" name="" class="conf3"></p>
-							<br>
-							<div class="conf1">
-								<input type="submit" value="Confirmar" class="conf2">
-							</div>
-						</div>
-					</form>
-
-				</section>
-				
-			</main>
-				
-			<footer class="rodape">
-
-				<img src="imagens/instalogo.png" alt="ícone do instagram" class="imagem2" />
-				<img src="imagens/facelogo.png" alt="ícone do facebook" class="imagem3" />
-
-			</footer>
-
-		</div>
-		
-	</body>
+    <div id="CaixaCadastro">
+        <form>
+            <p>Nome:</p>
+            <input type="text" name="" placeholder="Digite seu nome ">
+            <p>E-mail:</p>
+            <input type="email" name="" placeholder="Digite seu e-mail ">
+            <p>Endereço:</p>
+            <input type="text" name="" placeholder="Digite seu endereço ">
+            <p>Senha:</p>
+            <input type="password" name="" placeholder="Digite sua senha">
+            <p>Celular:</p>
+			<input type="number" name="" placeholder=" Digite seu celular">
+			<p>CPF: </p>
+			<input type="number" name="" placeholder="Digite seu CPF" pattern="[0-9]{11}">
+			<p id="OpcaodeEntrar">Você ja possui uma conta? <a href="#">Clique aqui para entrar!</a></p>
+			<input type="submit" name="" value="Cadastro">
+        </form>
+</body>
 </html>
