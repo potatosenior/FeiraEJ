@@ -2,7 +2,8 @@ header {
   border-bottom: 1px solid #fff;
   color: white;
   background-color: #D32626;
-  height: 100px;
+  height: 90px;
+  align-items: center;
 }
 
 header a {
@@ -30,7 +31,9 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 2%;
+  /* padding: 2%; */
+  /* background-color: green; */
+  margin-top: 20px;
 }
 
 .title {
@@ -60,7 +63,7 @@ header img {
   right: 0%;
   align-items: center;
   justify-content: space-evenly;
-  top: 100px;
+  top: 90px;
   background-color: #000;
   transition: max-height 0.5s;
   text-align: center;
