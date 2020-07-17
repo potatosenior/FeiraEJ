@@ -1,28 +1,18 @@
 const mongoose = require('mongoose');
 
-const ProdutosSchema = new mongoose.Schema({
-    Quantidade: {
-        type: Number,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
-    Total: {
-        type: Number,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
+const CarrinhoSchema = new mongoose.Schema({
+    Quantidade: Number,
+    Subtotal: Number,
 
     CPF_fk: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Cliente',
-        required: true
+        ref: 'Cliente'
     },
         
     IdProduto_fk:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Produto',
-        required: true
+        ref: 'Produto'
     }
 });
 
-module.exports = mongoose.model('Produto', ProdutosSchema);
+module.exports = mongoose.model('Carrinho', CarrinhoSchema);

@@ -2,22 +2,10 @@ const mongoose = require('mongoose');
 
 const CestaSchema = new mongoose.Schema({
     Cesta = [{
-        IDProduto: {
-            type: Number,
-            trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-            required: true
-        },
-        Quantidade: {
-            type: Number,
-            trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-            required: true
-        },
+        IDProduto:Number,
+        Quantidade:Number
     }],
-    Preco: {
-        type: Number,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
+    Preco:Number
 });
 
 module.exports = mongoose.model('Cesta', CestaSchema);

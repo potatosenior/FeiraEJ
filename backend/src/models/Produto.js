@@ -1,29 +1,11 @@
 const mongoose = require('mongoose');
 
 const ProdutosSchema = new mongoose.Schema({
-    Imagem: {
-        type: Buffer
-    },
-    Estoque: {
-        type: Number,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
-    Nome: {
-        type: String,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
-    Tipo: {
-        type: String,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
-    Preco: {
-        type: Number,
-        trim: true, // remove os espaços no começo e final ex: " joao " -> "joao"
-        required: true
-    },
+    Imagem: String,
+    Estoque: Number,
+    Nome: String,
+    Tipo: String,
+    Preco: Number
 });
 
 module.exports = mongoose.model('Produto', ProdutosSchema);
