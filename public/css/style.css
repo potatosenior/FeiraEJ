@@ -16,3 +16,8 @@ a {
 p{
   letter-spacing: 1.5px;
 }
+
+.main-div {
+  /* margem do tamanho do header */
+  margin-top: 90px;
+}

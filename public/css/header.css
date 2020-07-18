@@ -4,6 +4,10 @@ header {
   background-color: #D32626;
   height: 90px;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  margin-bottom: 90px;
 }
 
 header a {
@@ -16,7 +20,6 @@ header a {
 header h1 {
   font-family: 'Sedgwick Ave', cursive;
   font-size: 2.4em;
-  width: 80%;
   color: #A2DE96;
   cursor: pointer;
 }
@@ -31,8 +34,6 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* padding: 2%; */
-  /* background-color: green; */
   margin-top: 20px;
 }
 
@@ -40,8 +41,9 @@ header img {
   display: flex;
   flex-direction: row;
   width: 30%;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 20px;
 }
 
 .links-container {
@@ -57,7 +59,7 @@ header img {
   flex-direction: column;
   position: absolute;
   width: 15%;
-  height: 10%; 
+  height: 120px; 
   max-height: 0%;
   overflow: hidden;
   right: 0%;
@@ -69,19 +71,27 @@ header img {
   text-align: center;
 }
 
+.active {
+  max-height: 200px;
+}
+
+#icon {
+  transition: transform 0.4s;
+}
+
+.icon-active {
+  transform: translateY(5px) rotateX(180deg);
+}
+
 /* ----------------------------------------------- */
 
-img:active {
+header img:active {
   transform: rotate(15deg);
 }
 
 a:hover {
   color: #000 !important;
   transition: color 0.3s;
-}
-
-.active {
-  max-height: 50%;
 }
 
 .account-info a:hover {

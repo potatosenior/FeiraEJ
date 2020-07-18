@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://use.fontawesome.com/65acd3825f.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+  <link href="./css/reset.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
+  <link href="./css/header.css" rel="stylesheet">
+  <title>Header</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="header-container">
+        <div class="title"> 
+          <img id="logo" src="./img/icone_cabecalho.png" alt="Feira Ascii"/>
+          <h1 id="title" onclick="window.location='/'" >Feira Ascii</h1>
+        </div>
+
+        <div class="links-container">
+          {{#if logged}}
+            {{!-- se estiver logado --}}
+            <a href="/" >Inicio</a>
+            <a href="/" >Carrinho</a>
+            <a id="account" >Conta <i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
+            <div class="account-info unactive">
+              <a href="/conta" >Gerenciar conta</a>
+              <a href="/sair" >Sair</a>
+            </div>
+            
+            <script>
+              const button = document.querySelector("#account");
+              const list = document.querySelector(".account-info")
+              const icon = document.querySelector("#icon");
+              
+              button.addEventListener("click", function() {
+                // mostra ou esconde menu da Conta
+                list.classList.toggle("active")
+                // anima o icon da seta
+                icon.classList.toggle("icon-active")
+              });
+            </script>
+          {{else}}
+            {{!-- se nao estiver logado  --}}
+            {{#if login}}
+              {{!-- se estiver na pagina de login  --}}
+              <a href="/" >Inicio</a>
+              <a href="/cadastro" >Cadastro</a>
+            {{else}}
+              <a href="/" >Inicio</a>
+              <a href="/login" >Entrar</a>
+            {{/if}}
+          {{/if}}
+        </div>
+
+      </div>
+    </nav>
+  </header>
+</body>
+</html>
