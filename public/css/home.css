@@ -38,13 +38,13 @@
   align-items: center;
 }
 
-/* --------------------------------------------------------- */
+/* -------------------- PRODUTOS ------------------------------------- */
 
 .main-section {
   display: flex;
   flex-direction: column;
 }
-
+/* --------------------- TITULO ----------------------  */
 .main-section-title h2 {
   font-family: 'Sedgwick Ave', cursive;
   color: white;
@@ -85,7 +85,7 @@
   padding: 20px;
   justify-content: start;
 }
-
+/* --------------------------------------- PRODUTO -------------------------- */
 .main-section-item {
   display: flex;
   flex-direction: column;

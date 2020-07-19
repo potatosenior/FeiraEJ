@@ -1,0 +1,193 @@
+.carrinho__main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.carrinho__container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.carrinho__items {
+  display: flex;
+  flex-direction: column;
+  width: 68%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+ /* ----------------- INFORMAÇOES DO PRODUTO --------------------- */
+.carrinho__checkout {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  position: fixed;
+  right: 20px;
+  width: 25%;
+}
+  .carrinho__checkout div {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+  }
+  .carrinho__checkout h3 {
+    font-weight: bold;
+  }
+  .carrinho__checkout span {
+    margin-top: 10px;
+    font-weight: 300;
+  }
+  .carrinho__checkout a {
+    color: black;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #80FA5C;
+    padding: 12px 0px 12px;
+    text-align: center;
+    width: auto;
+  }
+  .carrinho__checkout .total {
+   flex-direction: row;
+   border-top: solid #e6e6e6 1px;
+  }
+  .carrinho__checkout .total span {
+    font-weight: bold !important;
+   }
+
+  /* ------------------------- PRODUTO ---------------------- */
+  .carrinho__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: solid #e6e6e6 1px;
+    align-items: center;
+  }
+    .carrinho__item img {
+      width: 15%;
+      border-radius: 10px;
+    }
+    .carrinho__item h2 {
+      width: 30%;
+      text-align: justify;
+      padding: 4px;
+    }
+    /* ------ preço ---------  */
+    .carrinho__item h3 {
+      width: 20%;
+      text-align: center;
+      font-weight: 300;
+    }
+    .carrinho__item svg {
+      padding: 2px;
+      cursor: pointer;
+    }
+    /* ------------- quantidade ------------  */
+    .carrinho__item .quantity_selector {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      /* border: 1px solid #121212; */
+      padding: 5px;
+    }
+    .carrinho__item .quantity_selector div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      border: 1px solid #e6e6e6;
+    }
+    .carrinho__item .quantity_selector span {
+      margin-top: 5px;
+      color: #999999;
+      font-weight: 300;
+    }
+    .carrinho__item .quantity_selector input {
+      text-align: center;
+      width: 20px;
+      background: none;
+      padding: 0;
+      border: none;
+      outline: none;
+    }
+    .carrinho__item .quantity_selector .quantity_form {
+      background: none;
+      display: flex;
+      align-items: center;
+      min-height: 20px;
+    }
+    .carrinho__item .quantity_selector .quantity_form input {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2em;
+      font-weight: 200;
+      cursor: pointer;
+    }
+
+/* -------------------- RESPONSIVIDADE ----------------  */
+
+@media(max-width: 1250px) {
+  .carrinho__items {
+    width: 65%;
+  }
+  .carrinho__item h2 {
+    font-size: 1.5em;
+  }
+  .carrinho__item h3 {
+    font-size: 1.2em;
+  }
+
+}
+@media(max-width: 1033px) {
+  .carrinho__item h2 {
+    font-size: 1.2em;
+  }
+  .carrinho__item h3 {
+    font-size: 1em;
+  }
+  .carrinho__item .quantity_selector span {
+    font-size: 0.7em;
+  }
+
+}
+@media(max-width: 855px) {
+  .carrinho__items {
+    width: 60%;
+  }
+  .carrinho__item img {
+    width: 20%;
+    border-radius: 10px;
+  }
+  .carrinho__item h2 {
+    font-size: 0.9em;
+  }
+  .carrinho__item h3 {
+    font-size: 0.9em;
+  }
+  .carrinho__item .quantity_selector span {
+    font-size: 0.6em;
+  }
+}
+ /* mobile */
+@media(max-width: 555px) {
+  .carrinho__checkout {
+    position: relative;
+  }
+  .carrinho__container {
+    flex-direction: column;
+  }
+  .carrinho__items {
+    width: 95%;
+  }
+  .carrinho__checkout {
+    margin-top: 30px;
+    width: 95%;
+    right: 0px;
+  }
+
+}

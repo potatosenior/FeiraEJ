@@ -29,7 +29,7 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
 // debugg
-  const logged = false
+const logged = true
 // rotas para as paginas html
 app.get('', (req, res) => {
   res.render('home', {
@@ -38,22 +38,29 @@ app.get('', (req, res) => {
   });
 });
 
-app.get('/Login', (req, res) => {
+app.get('/login', (req, res) => {
   res.render('login', {
     login: true,
     logged
   });
 });
 
-app.get('/Cadastro', (req, res) => {
+app.get('/cadastro', (req, res) => {
   res.render('cadastro', {
     cadastro: true,
     logged
   });
 });
 
-app.get('/Conta', (req, res) => {
+app.get('/conta', (req, res) => {
   res.render('conta', {
+    conta: true,
+    logged
+  });
+});
+
+app.get('/carrinho', (req, res) => {
+  res.render('carrinho', {
     conta: true,
     logged
   });
