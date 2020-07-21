@@ -101,6 +101,10 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
             font-size: 0.8em;
             font-weight: bold;
         }
+
+        div#CaixaCadastro p#OpcaodeEntrar{
+            padding-left: 20%;
+        }
     }
 
     @media(max-width: 1033px) {
@@ -116,7 +120,7 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
 
         div#CaixaCadastro input[type="submit"]{
             height: 50px;
-            margin-left: 25%;
+            margin-left: 30%;
         }
         div#CaixaCadastro p{
             font-size: 0.7em;
@@ -139,6 +143,7 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
                 height: 35px;
                 font-size: 1em;
                 width: 140px;
+                margin-left: 35%;
             }
             div#CaixaCadastro p{
                 font-size: 0.6em;
@@ -152,5 +157,9 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
         div#CaixaCadastro{
             width: 80%;
             height: 85%;
+        }
+
+        div#CaixaCadastro input[type="submit"]{
+            margin-left: 28%;
         }
     }
