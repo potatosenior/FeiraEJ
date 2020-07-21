@@ -12,51 +12,80 @@
 </head>
 <body>
   <header>
-    <nav>
-      <div class="header-container">
-        <div class="title"> 
-          <img id="logo" src="./img/icone_cabecalho.png" alt="Feira Ascii"/>
-          <h1 id="title" onclick="window.location='/'" >Feira Ascii</h1>
-        </div>
-
-        <div class="links-container">
-          {{#if logged}}
-            {{!-- se estiver logado --}}
-            <a href="/" >Inicio</a>
-            <a href="/carrinho" >Carrinho</a>
-            <a id="account" >Conta <i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
-            <div class="account-info unactive">
-              <a href="/conta" >Gerenciar conta</a>
-              <a href="/sair" >Sair</a>
-            </div>
-            
-            <script>
-              const button = document.querySelector("#account");
-              const list = document.querySelector(".account-info")
-              const icon = document.querySelector("#icon");
-              
-              button.addEventListener("click", function() {
-                // mostra ou esconde menu da Conta
-                list.classList.toggle("active")
-                // anima o icon da seta
-                icon.classList.toggle("icon-active")
-              });
-            </script>
-          {{else}}
-            {{!-- se nao estiver logado  --}}
-            {{#if login}}
-              {{!-- se estiver na pagina de login  --}}
-              <a href="/" >Inicio</a>
-              <a href="/cadastro" >Cadastro</a>
-            {{else}}
-              <a href="/" >Inicio</a>
-              <a href="/login" >Entrar</a>
-            {{/if}}
-          {{/if}}
-        </div>
-
+    <div class="header-container">
+      <div class="title"> 
+        <img id="logo" src="./img/icone_cabecalho.png" alt="Feira Ascii"/>
+        <h1 id="title" onclick="window.location='/'" >Feira Ascii</h1>
       </div>
-    </nav>
+
+      <div class="links-container">
+        {{#if logged}}
+          {{!-- se estiver logado --}}
+          <a href="/" >Inicio</a>
+          <a href="/carrinho" >Carrinho</a>
+          <a id="account" >Conta <i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
+          <div class="account-info">
+            <a href="/conta" >Gerenciar conta</a>
+            <a href="/sair" >Sair</a>
+          </div>
+          
+          <script>
+            const button = document.querySelector("#account");
+            const list = document.querySelector(".account-info")
+            const icon = document.querySelector("#icon");
+            
+            button.addEventListener("click", function() {
+              // mostra ou esconde menu da Conta
+              list.classList.toggle("active")
+              // anima o icon da seta
+              icon.classList.toggle("icon-active")
+            });
+          </script>
+        {{else}}
+          {{!-- se nao estiver logado  --}}
+          {{#if login}}
+            {{!-- se estiver na pagina de login  --}}
+            <a href="/" >Inicio</a>
+            <a href="/cadastro" >Cadastro</a>
+          {{else}}
+            <a href="/" >Inicio</a>
+            <a href="/login" >Entrar</a>
+          {{/if}}
+        {{/if}}
+      </div>
+
+      <i class="fa fa-2x fa-bars menu" id="menu" aria-hidden="true"></i>
+    </div>
+
+    <div class="links-container-mobile">
+      {{#if logged}}
+        {{!-- se estiver logado --}}
+        <a href="/" >Inicio</a>
+        <a href="/carrinho" >Carrinho</a>
+        <a href="/conta" >Gerenciar conta</a>
+        <a href="/sair" >Sair</a>
+      {{else}}
+        {{!-- se nao estiver logado  --}}
+        {{#if login}}
+          {{!-- se estiver na pagina de login  --}}
+          <a href="/" >Inicio</a>
+          <a href="/cadastro" >Cadastro</a>
+        {{else}}
+          <a href="/" >Inicio</a>
+          <a href="/login" >Entrar</a>
+        {{/if}}
+      {{/if}}
+
+      <script>
+        const menu_button = document.querySelector("#menu");
+        const mobile_list = document.querySelector(".links-container-mobile")
+        
+        menu_button.addEventListener("click", function() {
+          // mostra ou esconde o menu
+          mobile_list.classList.toggle("menu-active");
+        });
+      </script>
+    </div>
   </header>
 </body>
 </html>

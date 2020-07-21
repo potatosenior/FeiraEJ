@@ -39,8 +39,23 @@
       <div class="main-section-items-container">
         <div class="main-section-item">
           <img src="./img/alface.jpg" />
-          <p>Alface</p>
-          <span>R$<span class="preço">0,23</span>por<span class="medida">Unidade</span></span>
+
+          <h2>Alface</h2>
+
+          <span>R$<span class="preço">0,23 </span>por <span class="medida">Unidade </span></span>
+
+          <div class="quatity_container">
+            <form class="quantity_form" method="POST">
+              <input type="submit" value="-" name="pop" >
+            </form>
+
+            <input size="1" autocomplete="off" type="number" value="1" class="quantity_input" maxlength="3" min="1">
+
+            <form class="quantity_form" method="POST">
+              <input type="submit" value="+" name="pop" >
+            </form>
+          </div>
+
           <button>Adicionar ao carrinho</button>
         </div>
       </div>
@@ -81,14 +96,29 @@
       <div class="main-section-items-container">
         <div class="main-section-item">
           <img src="./img/cesta_frutas.jpg" />
-          <p>Frutas 1</p>
+          <h2>Frutas 1</h2>
+
           <ul>
             <li><span class="quantidade">1x </span>Abacate</li>
             <li><span class="quantidade">3x </span>Cacho de bananas</li>
             <li><span class="quantidade">2x </span>Cacho de uvas</li>
             <li><span class="quantidade">5x </span>Goiaba</li>
           </ul>
+
           <span>R$<span class="preço">30,00</span>por<span class="medida">Unidade</span></span>
+
+          <div class="quatity_container">
+            <form class="quantity_form" method="POST">
+              <input type="submit" value="-" name="pop" >
+            </form>
+
+            <input size="1" autocomplete="off" type="number" value="1" class="quantity_input" maxlength="3" min="1">
+
+            <form class="quantity_form" method="POST">
+              <input type="submit" value="+" name="pop" >
+            </form>
+          </div>
+          
           <button>Adicionar ao carrinho</button>
         </div>
       </div>

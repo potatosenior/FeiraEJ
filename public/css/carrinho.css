@@ -28,6 +28,7 @@
   position: fixed;
   right: 20px;
   width: 25%;
+  z-index: -1;
 }
   .carrinho__checkout div {
     display: flex;

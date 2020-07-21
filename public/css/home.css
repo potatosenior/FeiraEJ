@@ -91,16 +91,16 @@
   flex-direction: column;
   justify-content: space-between;
   flex-basis: 18%;
-  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
   align-items: center;
-  background-color: #D32626;
+  background-color: #FFF;
   border-radius: 10px;
   transition: transform 0.3s;
   margin: 10px;
 }
 
 .main-section-item button {
-  transition: background-color 0.3s;
+  opacity: 0.7;
+  transition: opacity 0.3s;
 }
 
 .main-section-item img {
@@ -111,9 +111,9 @@
   border-top-right-radius: 10px;
 }
 
-.main-section-item p {
-  color: white;
-  font-size: 140%;
+.main-section-item h2 {
+  color: #121212;
+  font-size: 120%;
   font-weight: bold;
   padding: 2%;
   letter-spacing: 1px;
@@ -121,16 +121,25 @@
 
 .main-section-item span {
   font-family: 'Roboto', sans-serif;
-  font-size: 110%;
+  font-size: 80%;
   color: #000;
   padding: 2%;
   width: 100%;
-  text-align: center;
-  font-weight: lighter;
+  text-align: start;
+  font-weight: normal;
+}
+/* -------- PRIMEIRO span PRECEDIDO POR UM h2 -----  */
+.main-section-item h2 ~ span {
+  margin-left: 15px;
+}
+.main-section-item ul ~ span {
+  margin-left: 15px;
 }
 
-.main-section-item span .preço, .medida, .quantidade {
-  color: white !important;
+.main-section-item span .preço, .medida {
+  color: #FF1654 !important;
+  font-size: 130% !important;
+  font-weight: normal;
 }
 
 .main-section-item ul {
@@ -148,23 +157,57 @@
   cursor: pointer;
   background-color: #32CD32;
   font-family: 'Roboto', sans-serif;
-  font-size: 150%;
+  font-size: 100%;
   font-weight: 300;
-  width: 100%;
+  width: 90%;
   border-style: none;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 5%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+/* ---------------------- QUANTIDADE --------------  */
+.quatity_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.quatity_container input {
+  text-align: center;
+  background: none;
+  padding: 0;
+  border: none;
+  outline: none;
+  border: 1px solid #e6e6e6;
+  /* border: 1px solid red; */
+  height: 100%;
+}
+.quantity_form {
+  display: flex;
+  align-items: center;
+}
+.quantity_form input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  font-weight: 200;
+  cursor: pointer;
+  min-width: 25px;
+  background-color: #e6e6e6;
+  height: 42px;
 }
 
 /* ------------------------------------------------------------------ */
 
 .main-section-item:hover {
-  transform: scale(1.1);
+  transform: scale(1);
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
 }
 
-.main-section-item button:hover {
-  background-color: white;
+.main-section-item:hover > button {
+  opacity: 1;
 }
 
 @media(max-width: 1250px) {
