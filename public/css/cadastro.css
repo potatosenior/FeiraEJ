@@ -9,65 +9,6 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
 }
-/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/*Formatação do Cabeçalho*/
-
-
-header#HeaderCadastro{
-    background-color:rgb(211, 38, 38);
-    height: 85px;
-    padding-left:20px;
-}
-div#TextoCabeçalho{
-    font-family: 'Sedgwick Ave';
-    letter-spacing: 4px;
-    color: white;
-    font-size: 26px;
-    padding-top: 30px;
-    padding-left: 50px;
-}
-
-img#IconeCabeçalho{
-    width: 48px;
-    padding-top: 20px;
-    float: left;
-    position: relative;
-}
-
-nav#MenuCadastro {
-        display: block;
-    }
-
-
-    nav#MenuCadastro ul{
-        list-style: none;
-        position: absolute;
-        top: 0px;
-        left: 1590px;
-    }
-    
-    
-    nav#MenuCadastro li{
-        font-family:  'Raleway';
-        font-size: 19pt;
-        display: inline-block;
-        padding-right: 70px;
-        margin-top: 10px;
-        transition: background-color 1s;
-        
-    }
-
-    nav#MenuCadastro a{
-        color: #ffffff;
-        text-decoration: none;
-    }
-    
-    
-    nav#MenuCadastro a:hover{
-        color: #000000;
-        transition: 0.5s;
-    }
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -77,8 +18,8 @@ nav#MenuCadastro {
 
 
     div#CaixaCadastro{
-        width: 810px;
-        height: 1000px;
+        width: 45%;
+        height: 100%;
         border: 1px solid rgb(152, 158, 158);
         border-radius: 80px 0px;
         color: #fff;
@@ -98,7 +39,7 @@ nav#MenuCadastro {
         padding: 0;
         font-family: 'Raleway', cursive;
         color: black;
-        font-size: 20px;
+        font-size: 1.25em;
         margin-bottom: 21px;
         font-weight: bold;
     }
@@ -115,7 +56,7 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
         border-bottom: 1px solid white;
         background: rgba(255, 255, 255, 1);
         height: 40px;
-        font-size: 16px;
+        font-size: 1em;
         position: relative;
 		border-radius: 9px;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -135,7 +76,7 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
         background: white;
         border-radius: 20px;
         font-family: 'Raleway', cursive;
-        font-size: 26px;
+        font-size: 1.625em;
         width: 228px;
         margin-left: 35%;
         /* margin-top: -5px; */
@@ -152,3 +93,81 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
 	   padding-left: 15%;
     }
     /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /*                                                                                   RESPONSIVIDADE                                                                            */
+
+    @media(max-width: 1250px){
+        div#CaixaCadastro{
+            width: 60%;
+            height: 830px;
+            margin-top: 150px;
+        }
+
+        div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
+            font-size: 0.9em;
+            height: 30px;
+        }
+
+        div#CaixaCadastro input[type="submit"]{
+            height: 60px;
+            margin-left: 30%;
+        }
+        div#CaixaCadastro p{
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+    }
+
+    @media(max-width: 1033px) {
+        div#CaixaCadastro{
+            width: 65%;
+            height: 830px;
+            margin-top: 150px;
+        }
+
+        div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
+            font-size: 0.8em;
+            height: 30px;
+        }
+
+        div#CaixaCadastro input[type="submit"]{
+            height: 50px;
+            margin-left: 25%;
+        }
+        div#CaixaCadastro p{
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+    }
+
+        @media(max-width: 855px) {
+            div#CaixaCadastro{
+                width: 70%;
+                height: 760px;
+            }
+    
+            div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
+                font-size: 0.6em;
+                height: 20px;
+            }
+    
+            div#CaixaCadastro input[type="submit"]{
+                height: 35px;
+                margin-left: 35%;
+                font-size: 1em;
+                width: 140px;
+            }
+            div#CaixaCadastro p{
+                font-size: 0.6em;
+                font-weight: bold;
+            }
+        }
+
+        /*Mobile*/
+
+    @media(max-width: 555px) {
+        div#CaixaCadastro{
+            width: 80%;
+            height: 85%;
+        }
+    }

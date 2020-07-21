@@ -12,68 +12,6 @@ body{
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*Formatação do Cabeçalho*/
-
-header#HeaderLogin{
-    background-color:rgb(211, 38, 38);
-    height: 85px;
-    padding-left:20px;
-    margin-left: 0px;
-}
-div#TextoCabeçalho{
-    font-family: 'Sedgwick Ave';
-    letter-spacing: 4px;
-    color: white;
-    font-size: 26px;
-    padding-top: 30px;
-    padding-left: 50px;
-}
-
-img#IconeCabeçalho{
-    width: 48px;
-    padding-top: 20px;
-    float: left;
-    position: relative;
-}
-
-nav#MenuLogin {
-        display: block;
-    }
-
-
-    nav#MenuLogin ul{
-        list-style: none;
-        position: absolute;
-        top: 0px;
-        left: 1600px;
-    }
-    
-    
-    nav#MenuLogin li{
-        font-family:  'Raleway';
-        font-size: 19pt;
-        display: inline-block;
-        padding: 0px;
-        margin: 10px;
-        transition: background-color 1s;
-        
-    }
-    
-    
-    
-
-    nav#MenuLogin a{
-        color: #ffffff;
-        text-decoration: none;
-    }
-    
-    
-    nav#MenuLogin a:hover{
-        color: #000000;
-        transition: 0.5s;
-    }
-
-/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Formatação do Formulario de Login*/
 
@@ -161,9 +99,11 @@ div#CaixaLogin input[type="submit"]:hover {
 div#CaixaLogin a{
     font-weight: bold;
     text-decoration: none;
-    font-size: 200px;
+    font-size: 25px;
     line-height: 20px;
-    color: #4b4b4b;
+    color:black;
+    font-family: 'Raleway', cursive;
+    padding-left: 300px;
     
 }
 
@@ -194,4 +134,132 @@ div#CaixaLogin a{
     position: absolute;
     bottom: 0px;
     width: 100%;
+    }
+    /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /*                                                                                   RESPONSIVIDADE                                                                            */
+
+    @media(max-width: 1250px){
+        div#CaixaLogin{
+            width: 60%;
+            height: 65%;
+        }
+
+        div#CaixaLogin input[type="email"], input[type="password"]{
+            font-size: 0.8em;
+            height: 30px;
+        }
+
+        div#CaixaLogin input[type="submit"]{
+            font-size: 1.4em;
+            height: 40px;
+            width: 30%
+        }
+
+        div#CaixaLogin p{
+            font-size: 1em;
+        }
+
+        div#CaixaLogin p.TextoCaixaLogin{
+            font-size: 1em;
+            padding-left: 32%;
+        }
+
+        h1#Login{
+            font-size: 3.5em;
+        }
+
+        div#CaixaLogin a{
+            padding-left: 38%;
+        }
+    }
+
+        @media(max-width: 1033px) {
+
+            div#CaixaLogin{
+                width: 70%;
+                height: 60%;
+            }
+    
+            div#CaixaLogin input[type="email"], input[type="password"]{
+                font-size: 0.8em;
+                height: 30px;
+            }
+    
+            div#CaixaLogin input[type="submit"]{
+                font-size: 1.4em;
+                height: 35px;
+                width: 28%;
+                
+            }
+    
+            div#CaixaLogin p{
+                font-size: 1em;
+            }
+    
+            div#CaixaLogin p.TextoCaixaLogin{
+                font-size: 0.8em;
+                padding-left: 35%;
+            }
+    
+            h1#Login{
+                font-size: 3em;
+            }
+    
+            div#CaixaLogin a{
+                padding-left: 40%;
+                font-size: 1.2em;
+            }
+        }
+
+        @media(max-width: 855px) {
+            div#CaixaLogin{
+                width: 75%;
+                height: 60%;
+            }
+    
+            div#CaixaLogin input[type="email"], input[type="password"]{
+                font-size: 0.8em;
+                height: 30px;
+            }
+    
+            div#CaixaLogin input[type="submit"]{
+                font-size: 1.4em;
+                height: 35px;
+                width: 50%;
+                margin-left: 25%;
+                
+            }
+    
+            div#CaixaLogin p{
+                font-size: 1em;
+            }
+    
+            div#CaixaLogin p.TextoCaixaLogin{
+                font-size: 0.8em;
+                padding-left: 33%;
+            }
+    
+            h1#Login{
+                font-size: 2.5em;
+            }
+    
+            div#CaixaLogin a{
+                padding-left: 40%;
+                font-size: 1.2em;
+            }
+        }
+
+        /*Mobile*/
+
+    @media(max-width: 555px) {
+        div#CaixaLogin p.TextoCaixaLogin{
+            font-size: 0.8em;
+            padding-left: 18%;
+        }
+
+        div#CaixaLogin a{
+            padding-left: 30%;
+            font-size: 1.2em;
+        }
     }

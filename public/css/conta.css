@@ -9,67 +9,8 @@ body{
     background-image:url(../img/FundoConta5.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+    background-size: cover;
 }
-/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/*Formatação do Cabeçalho*/
-
-
-header#HeaderConta{
-    background-color:rgb(211, 38, 38);
-    height: 85px;
-    padding-left:20px;
-}
-div#TextoCabeçalho{
-    font-family: 'Sedgwick Ave';
-    letter-spacing: 4px;
-    color: white;
-    font-size: 26px;
-    padding-top: 30px;
-    padding-left: 50px;
-}
-
-img#IconeCabeçalho{
-    width: 48px;
-    padding-top: 20px;
-    float: left;
-    position: relative;
-}
-
-nav#MenuConta {
-        display: block;
-    }
-
-
-    nav#MenuConta ul{
-        list-style: none;
-        position: absolute;
-        top: 0px;
-        left: 1550px;
-    }
-    
-    
-    nav#MenuConta li{
-        font-family:  'Raleway';
-        font-size: 19pt;
-        display: inline-block;
-        padding-right: 35px;
-        margin-top: 10px;
-        transition: background-color 1s;
-        
-    }
-
-    nav#MenuConta a{
-        color: #ffffff;
-        text-decoration: none;
-    }
-    
-    
-    nav#MenuConta a:hover{
-        color: #000000;
-        transition: 0.5s;
-    }
-
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -156,3 +97,128 @@ nav#MenuConta {
         
     }
     /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    /*                                                                                   RESPONSIVIDADE                                                                            */
+
+    @media(max-width: 1250px){
+
+        body{
+            margin: 0;
+            padding: 0;
+            background-image:url(../img/FundoConta5.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        div#CaixaAlterações{
+            width: 60%;
+            height: 80%;
+        }
+
+        div#CaixaAlterações input[type="email"], input[type="password"], input[type="text"], input[type="tel"]{
+            font-size: 0.8em;
+            height: 30px;
+        }
+
+        div#CaixaAlterações p{
+            font-size: 1em;
+        }
+
+        div#CaixaAlterações input[type="submit"]{
+            font-size: 1.4em;
+            width: 35%;
+            height: 60px;
+        }
+    }
+
+    @media(max-width: 1033px) {
+        body{
+            margin: 0;
+            padding: 0;
+            background-image:url(../img/FundoConta5.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        div#CaixaAlterações{
+            width: 65%;
+            height: 75%;
+        }
+
+        div#CaixaAlterações input[type="email"], input[type="password"], input[type="text"], input[type="tel"]{
+            font-size: 0.7em;
+            height: 25px;
+        }
+
+        div#CaixaAlterações p{
+            font-size: 0.9em;
+        }
+
+        div#CaixaAlterações input[type="submit"]{
+            font-size: 1.2em;
+            height: 50px;
+        }
+
+    }
+
+    @media(max-width: 855px) {
+        body{
+            margin: 0;
+            padding: 0;
+            background-image:url(../img/FundoConta5.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        div#CaixaAlterações{
+            width: 70%;
+            height: 70%;
+        }
+
+        div#CaixaAlterações input[type="email"], input[type="password"], input[type="text"], input[type="tel"]{
+            font-size: 0.65em;
+            height: 22px;
+        }
+
+        div#CaixaAlterações p{
+            font-size: 0.8em;
+        }
+
+        div#CaixaAlterações input[type="submit"]{
+            font-size: 1em;
+            height: 40px;
+        }
+    }
+
+
+            /*Mobile*/
+
+    @media(max-width: 555px) {
+        body{
+            margin: 0;
+            padding: 0;
+            background-image:url(../img/FundoConta5.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        div#CaixaAlterações{
+            width: 80%;
+            height: 70%;
+        }
+
+        div#CaixaAlterações input[type="submit"]{
+            font-size: 0.8em;
+            height: 40px;
+        }
+    }
