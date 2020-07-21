@@ -29,7 +29,7 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
 // debugg
-const logged = true
+const logged = false
 // rotas para as paginas html
 app.get('', (req, res) => {
   res.render('home', {
