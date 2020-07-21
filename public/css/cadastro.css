@@ -2,14 +2,11 @@
 
 /*Formatação da pagina de Cadastro*/
 
-
-body{
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    background-size: 100%;
+.cadastro_main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
-
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -19,18 +16,13 @@ body{
 
     div#CaixaCadastro{
         width: 45%;
-        height: 100%;
         border: 1px solid rgb(152, 158, 158);
         border-radius: 80px 0px;
         color: #fff;
         background-color: rgba(76, 173, 47, 0.75);
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
         box-sizing: border-box;
         padding: 68px 28px;
-        margin-top: 8%;
+
     }
 
 
@@ -57,15 +49,9 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
         background: rgba(255, 255, 255, 1);
         height: 40px;
         font-size: 1em;
-        position: relative;
 		border-radius: 9px;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-        
     }
-
-
-
-
 
     div#CaixaCadastro input[type="submit"]{
         border: none;
@@ -100,7 +86,6 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
         div#CaixaCadastro{
             width: 60%;
             height: 830px;
-            margin-top: 150px;
         }
 
         div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
@@ -122,7 +107,6 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
         div#CaixaCadastro{
             width: 65%;
             height: 830px;
-            margin-top: 150px;
         }
 
         div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
@@ -153,7 +137,6 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
     
             div#CaixaCadastro input[type="submit"]{
                 height: 35px;
-                margin-left: 35%;
                 font-size: 1em;
                 width: 140px;
             }
@@ -163,7 +146,7 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
             }
         }
 
-        /*Mobile*/
+    /*Mobile*/
 
     @media(max-width: 555px) {
         div#CaixaCadastro{

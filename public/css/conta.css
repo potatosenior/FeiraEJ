@@ -2,7 +2,6 @@
 
 /*Formatação da pagina de Conta*/
 
-
 body{
     margin: 0;
     padding: 0;
@@ -10,10 +9,15 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     background-size: cover;
+    background-position: center;
+}
+
+.conta_main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
 
 /*Formatação do Formulario de Conta*/
 
@@ -25,10 +29,6 @@ body{
         border-radius: 80px 0px;
         color: #fff;
         background-color: rgba(152, 158, 158, 0.75);
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
         box-sizing: border-box;
         padding: 68px 28px;
         margin-top: 35px;
@@ -59,14 +59,8 @@ body{
         background: rgba(255, 255, 255, 0.75);
         height: 40px;
         font-size: 16px;
-        position: relative;
         border-radius: 20px;
-        
     }
-
-
-
-
 
     div#CaixaAlterações input[type="submit"]{
         border: none;
@@ -101,18 +95,6 @@ body{
     /*                                                                                   RESPONSIVIDADE                                                                            */
 
     @media(max-width: 1250px){
-
-        body{
-            margin: 0;
-            padding: 0;
-            background-image:url(../img/FundoConta5.jpg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-
         div#CaixaAlterações{
             width: 60%;
             height: 80%;
@@ -135,17 +117,6 @@ body{
     }
 
     @media(max-width: 1033px) {
-        body{
-            margin: 0;
-            padding: 0;
-            background-image:url(../img/FundoConta5.jpg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-
         div#CaixaAlterações{
             width: 65%;
             height: 75%;
@@ -168,16 +139,6 @@ body{
     }
 
     @media(max-width: 855px) {
-        body{
-            margin: 0;
-            padding: 0;
-            background-image:url(../img/FundoConta5.jpg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
         div#CaixaAlterações{
             width: 70%;
             height: 70%;
@@ -202,15 +163,6 @@ body{
             /*Mobile*/
 
     @media(max-width: 555px) {
-        body{
-            margin: 0;
-            padding: 0;
-            background-image:url(../img/FundoConta5.jpg);
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-size: cover;
-            background-position: center;
-        }
 
         div#CaixaAlterações{
             width: 80%;
