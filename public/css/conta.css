@@ -60,6 +60,7 @@ body{
         height: 40px;
         font-size: 16px;
         border-radius: 20px;
+        padding-left: 10px;
     }
 
     div#CaixaAlterações input[type="submit"]{
@@ -147,6 +148,7 @@ body{
         div#CaixaAlterações input[type="email"], input[type="password"], input[type="text"], input[type="tel"]{
             font-size: 0.65em;
             height: 22px;
+            padding-left: 10px;
         }
 
         div#CaixaAlterações p{
@@ -173,4 +175,5 @@ body{
             font-size: 0.8em;
             height: 40px;
         }
+            
     }

@@ -74,6 +74,7 @@ div#CaixaLogin input[type="email"], input[type="password"]{
     height: 40px;
     font-size: 16px;
     border-radius: 20px;
+    padding-left: 10px;
     
 }
 
@@ -259,5 +260,7 @@ div#CaixaLogin a{
         div#CaixaLogin a{
             padding-left: 30%;
             font-size: 1.2em;
+        }
+        div#CaixaLogin input[type="email"], input[type="password"]{
         }
     }
