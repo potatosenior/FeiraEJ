@@ -66,4 +66,11 @@ app.get('/carrinho', (req, res) => {
   });
 });
 
+app.get('/ajuda', (req, res) => {
+  res.render('ajuda', {
+    conta: true,
+    logged
+  });
+});
+
 module.exports = app;
