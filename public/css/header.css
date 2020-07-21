@@ -1,13 +1,15 @@
 header {
-  border-bottom: 1px solid #fff;
-  color: white;
-  background-color: #D32626;
+  display: flex;
+  flex-direction: column;
   height: 90px;
   align-items: center;
   position: fixed;
   width: 100%;
-  top: 0px;
-  margin-bottom: 90px;
+  z-index: 10;
+  
+  border-bottom: 1px solid #fff;
+  color: white;
+  background-color: #D32626;
 }
 
 header a {
@@ -15,6 +17,7 @@ header a {
   font-weight: 200;
   color: #fff ;
   cursor: pointer;
+  padding: 0px 20px;
 }
 
 header h1 {
@@ -31,12 +34,13 @@ header img {
   background-size: contain;
 }
 
-.header-container {
+.header_container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
@@ -48,15 +52,48 @@ header img {
   padding-left: 20px;
 }
 
-.links-container {
+.links_container {
   display: flex;
   flex-direction: row;
-  width: 40%;
+  width: 50%;
+  height: 100%;
   align-items: center;
   justify-content: space-around;
 }
+/* --------------- DROPDOWN DAS CATEGORIAS ----------------  */
+.categorys {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+  .categorys .category_button {
+    margin: 0;
+  }
+  .categorys a:hover, .categorys:hover {
+    background-color: #212121;
+    color: #fff !important;
+  }
+  .category_list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #D32626;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 190px;
+    z-index: 3;
+    margin-top: 133px;
+  }
+  .category_list a {
+    padding: 10px;
+  }
+  .categorys:hover .category_list{
+    display: flex;
+  }
 /* --------------- DROPDOWN DA CONTA ----------------  */
-.account-info {
+.account_info {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -68,13 +105,13 @@ header img {
   align-items: center;
   justify-content: space-evenly;
   top: 90px;
-  background-color: #000;
+  background-color: #121212;
   transition: max-height 0.5s;
   text-align: center;
 }
 
 .active {
-  max-height: 200px;
+  max-height: 300px;
 }
 /* --------- ICONE DO DROPDOWN ---------- */
 #icon {
@@ -92,23 +129,24 @@ header img {
   transition: color 0.3s;
 }
 .menu:hover {
-  color: #000;
+  color: #121212;
 }
-.links-container-mobile {
+.links_container-mobile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #D32626;
   max-height: 0px;
+  width: 100%;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 }
-  .links-container-mobile a {
+  .links_container-mobile a {
     padding: 7px;
   }
-  .menu-active {
-    max-height: 200px;
+  .menu_active {
+    max-height: 300px;
   }
 /* --------------- EFEITOS -------------------------------- */
 
@@ -117,11 +155,11 @@ header img:active {
 }
 
 a:hover {
-  color: #000 !important;
+  color: #121212 !important;
   transition: color 0.3s;
 }
 
-.account-info a:hover {
+.account_info a:hover {
   color: #D32626 !important;
   transition: color 0.3s;
 }
@@ -131,24 +169,26 @@ a:hover {
   header h1 {
     font-size: 2em;
   }
+  header a {
+    font-size: 0.9em;
+  }
+  .category_list {
+    margin-top: 110px;
+  }
 }
 /* ----------- MOBILE -----------  */
 @media (max-width: 650px) {
   header {
     height: 60px;
-    margin-bottom: 60px;
   }
   header img {
     width: 35px;
     height: 35px;
   }
   header h1 {
-    font-size: 1.5em;
+    font-size: 1em;
   }
-  .header-container {
-    margin-top: 10px;
-  }
-  .links-container {
+  .links_container {
     display: none;
   }
   .menu {

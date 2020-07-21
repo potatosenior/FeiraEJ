@@ -29,7 +29,7 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
 // debugg
-const logged = false
+const logged = true
 // rotas para as paginas html
 app.get('', (req, res) => {
   res.render('home', {
@@ -62,6 +62,7 @@ app.get('/conta', (req, res) => {
 app.get('/carrinho', (req, res) => {
   res.render('carrinho', {
     conta: true,
+    home: false,
     logged
   });
 });
@@ -69,6 +70,17 @@ app.get('/carrinho', (req, res) => {
 app.get('/ajuda', (req, res) => {
   res.render('ajuda', {
     conta: true,
+    logged
+  });
+});
+
+// Qualquer outra rota que nao esteja definida
+app.get('*', (req, res) => {
+  res.render('erro', {
+    code: 404,
+    message: "Página não encontrada",
+    button_text: "Voltar ao site",
+    button_url: "/",
     logged
   });
 });

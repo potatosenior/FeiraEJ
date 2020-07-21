@@ -16,7 +16,7 @@
 
 		{{>header}}
 
-		<main class="main-div">
+		<main class="main_div">
 
 			<div class="central">
 				<h1>Central de Ajuda</h1>
@@ -91,11 +91,12 @@
 					const resposta = pergunta.querySelector(".resposta_container");
 					const icon = pergunta.querySelector("i");
 
-					resposta.classList.toggle("active");
+					resposta.classList.toggle("resposta_active");
 					icon.classList.toggle("icon_active");
 				})
 			})
 		</script>
 	
+	{{>footer}}
 	</body>
 </html>

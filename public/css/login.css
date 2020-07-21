@@ -125,18 +125,9 @@ div#CaixaLogin a{
         width: 40px;
         padding-left: 45px;
     }
-    
-
-    footer#FooterLogin{
-        background-color:rgb(211, 38, 38);
-        height: 65px;
-        /* position: absolute; */
-        bottom: 0px;
-        width: 100%;
-    }
     /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-    /*                                                                                   RESPONSIVIDADE                                                                            */
+    /*                         RESPONSIVIDADE                  */
 
     @media(max-width: 1250px){
         div#CaixaLogin{

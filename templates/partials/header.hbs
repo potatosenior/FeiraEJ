@@ -12,26 +12,42 @@
 </head>
 <body>
   <header>
-    <div class="header-container">
+    <div class="header_container">
       <div class="title"> 
         <img id="logo" src="./img/icone_cabecalho.png" alt="Feira Ascii"/>
         <h1 id="title" onclick="window.location='/'" >Feira Ascii</h1>
       </div>
 
-      <div class="links-container">
+      <div class="links_container">
+        {{#if home}}
+          {{!-- se estiver na pagina home  --}}
+          <div class="categorys">
+            <a class="category_button">Categorias
+              <i class="fa fa-chevron-down fa-xs" aria-hidden="true"></i>
+            </a>
+            <div class="category_list">
+              <a href="/#1">Hortaliças</a>
+              <a href="/#2">Grãos</a>
+              <a href="/#3">Frutas</a>
+              <a href="/#4">Cestas</a>
+            </div>
+          </div>
+        {{else}}
+          <a href="/">Inicio</a>
+        {{/if}}
+
         {{#if logged}}
           {{!-- se estiver logado --}}
-          <a href="/" >Inicio</a>
           <a href="/carrinho" >Carrinho</a>
-          <a id="account" >Conta <i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
-          <div class="account-info">
+          <a id="account" >Conta<i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
+          <div class="account_info">
             <a href="/conta" >Gerenciar conta</a>
             <a href="/sair" >Sair</a>
           </div>
           
           <script>
             const button = document.querySelector("#account");
-            const list = document.querySelector(".account-info")
+            const list = document.querySelector(".account_info")
             const icon = document.querySelector("#icon");
             
             button.addEventListener("click", function() {
@@ -45,10 +61,8 @@
           {{!-- se nao estiver logado  --}}
           {{#if login}}
             {{!-- se estiver na pagina de login  --}}
-            <a href="/" >Inicio</a>
             <a href="/cadastro" >Cadastro</a>
           {{else}}
-            <a href="/" >Inicio</a>
             <a href="/login" >Entrar</a>
           {{/if}}
         {{/if}}
@@ -57,7 +71,7 @@
       <i class="fa fa-2x fa-bars menu" id="menu" aria-hidden="true"></i>
     </div>
 
-    <div class="links-container-mobile">
+    <div class="links_container-mobile">
       {{#if logged}}
         {{!-- se estiver logado --}}
         <a href="/" >Inicio</a>
@@ -78,14 +92,16 @@
 
       <script>
         const menu_button = document.querySelector("#menu");
-        const mobile_list = document.querySelector(".links-container-mobile")
+        const mobile_list = document.querySelector(".links_container-mobile")
         
         menu_button.addEventListener("click", function() {
           // mostra ou esconde o menu
-          mobile_list.classList.toggle("menu-active");
+          mobile_list.classList.toggle("menu_active");
         });
       </script>
     </div>
   </header>
+
+  {{>footer}}
 </body>
 </html>

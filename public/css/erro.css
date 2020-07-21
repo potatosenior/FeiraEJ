@@ -1,0 +1,29 @@
+.main_erro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 60vh;
+}
+
+.main_erro h1 {
+  font-size: 9em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.main_erro a {
+  color: #121212;
+  background-color: #80FA5C;
+  font-weight: 300;
+  
+  padding: 15px 40px 15px 40px;
+  border-radius: 10px;
+}
+
+.main_erro div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
