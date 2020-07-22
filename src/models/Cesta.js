@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const CestaSchema = new mongoose.Schema({
-    Cesta = [{
-        IDProduto:Number,
-        Quantidade:Number
-    }],
+    Imagem: String,
+    Id_Produtos:[String],
+    Quantidade: [Number],
+    tipo:String,
     Preco:Number
 });
 
