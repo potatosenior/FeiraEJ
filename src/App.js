@@ -5,9 +5,9 @@ const hbs = require('hbs');
 
 const routes = require('./routes');
 
-mongoose.connect('mongodb+srv://victor:Victor@cluster0-wr1cu.mongodb.net/FeiraEJ?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+mongoose.connect('mongodb+srv://FeiraEJ:FeiraEJ@feiraej.wr1cu.mongodb.net/FeiraEJ?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 
 const app = express();
@@ -84,5 +84,7 @@ app.get('*', (req, res) => {
     logged
   });
 });
+
+
 
 module.exports = app;
