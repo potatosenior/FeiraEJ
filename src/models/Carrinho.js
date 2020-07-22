@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 
 const CarrinhoSchema = new mongoose.Schema({
-    Id_Cliente: String,         
-    Id_Produto:String,
     Quantidade: Number,
-    Subtotal: Number
+    Subtotal: Number,
+
+    CPF_fk: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Cliente'
+    },
+        
+    IdProduto_fk:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Produto'
+    }
 });
 
 module.exports = mongoose.model('Carrinho', CarrinhoSchema);
