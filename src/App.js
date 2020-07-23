@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const hbs = require('hbs');
+const Produto = require('./models/Produto');
+const Cesta = require('./models/Cesta');
 
 const routes = require('./routes');
 
@@ -31,10 +33,34 @@ hbs.registerPartials(partialsPath);
 // debugg
 const logged = false
 // rotas para as paginas html
-app.get('', (req, res) => {
+app.get('', async (req, res) => {
+/*   const cestas = ;
+
+  if(cestas) {
+    cestas.forEach( async cesta => {
+      // pra cada cesta, cria uma prop noma 'produtos' com 
+      // o nome e a quantidade de cada produto na cesta
+      cesta.produtos = [];
+
+      cesta.Produtos.forEach( async produto => {
+        let prod = await Produto.findById(produto.Id);
+        if (!produto) return;
+
+        cesta.produtos.push({
+          Nome: prod.Nome,
+          Quantidade: produto.Quantidade
+        })
+      })
+    })
+  } */
+
   res.render('home', {
     home: true,
-    logged
+    logged,
+    hortalicas: await Produto.find({Tipo: "hortalica"}) || [],
+    graos: await Produto.find({Tipo: "grao"}) || [],
+    frutas: await Produto.find({Tipo: "fruta"}) || [],
+    cestas: await Cesta.find({}) || [],
   });
 });
 

@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 
 const CestaSchema = new mongoose.Schema({
     Imagem: String,
-    Id_Produtos:[String],
-    Quantidade: [Number],
+    Produtos: [{
+        Id: mongoose.Schema.Types.ObjectId,
+        Quantidade: Number,
+        Nome: String
+    }],
     tipo:String,
-    Preco:Number
+    Preco:Number,
+    Nome: String
 });
 
 module.exports = mongoose.model('Cesta', CestaSchema);

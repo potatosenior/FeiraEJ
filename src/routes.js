@@ -20,7 +20,7 @@ routes.put('/AtualizaCliente',ClienteController.update);
 
 
 //Session
-routes.post('/Login',SessionController.store);
+routes.post('/Login', SessionController.store);
 
 
 //Produtos

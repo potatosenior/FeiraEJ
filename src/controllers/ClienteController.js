@@ -27,17 +27,17 @@ function ValidaCPF(CPF){
 
 module.exports = {
     async store(req,res){
-        const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;      
+        const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
         
-       let cliente = await Cliente.findOne( { CPF } );
-        return res.json(cliente);
-        /*if(!cliente){
-            if(ValidaCPF(CPF)){
-                cliente = await Cliente.create({Nome, CPF, Email, Senha, Endereco, Celular});
-                return res.json(cliente);
+        let cliente = await Cliente.findOne( { CPF } );
+
+        if(!cliente){    
+            if(true){//ValidaCPF(CPF)){
+                cliente = await Cliente.create({Nome, CPF, Email, Senha, Endereco, Celular});        
+                return res.json(cliente).send();
             }
-        }*/
-        //return res.json( { message : "Cliente ja cadastrado" } );
+        }
+        return res.status(400).json( { error : "Cliente ja cadastrado com este CPF!" } ).send();
     },
 
     async update(req,res){
