@@ -39,16 +39,17 @@
         {{#if logged}}
           {{!-- se estiver logado --}}
           <a href="/carrinho" >Carrinho</a>
-          <a id="account" >Conta<i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
+          <a id="account" >Conta <i id="icon" class="fa fa-chevron-down fa-xs" aria-hidden="true"></i></a>
           <div class="account_info">
             <a href="/conta" >Gerenciar conta</a>
-            <a href="/sair" >Sair</a>
+            <a id="sair" >Sair</a>
           </div>
           
           <script>
             const button = document.querySelector("#account");
             const list = document.querySelector(".account_info")
             const icon = document.querySelector("#icon");
+            const sair = document.querySelector("#sair");
             
             button.addEventListener("click", function() {
               // mostra ou esconde menu da Conta
@@ -56,6 +57,11 @@
               // anima o icon da seta
               icon.classList.toggle("icon-active")
             });
+            sair.addEventListener("click", async () => {
+              fetch("/logout", {
+                method: "POST"
+              }).then(() => window.location.href = "/");
+            })
           </script>
         {{else}}
           {{!-- se nao estiver logado  --}}
@@ -72,9 +78,16 @@
     </div>
 
     <div class="links_container-mobile">
+      {{#if home}}
+        <a href="/#1">Hortaliças</a>
+        <a href="/#2">Grãos</a>
+        <a href="/#3">Frutas</a>
+        <a href="/#4">Cestas</a>
+      {{else}}
+        <a href="/">Inicio</a>
+      {{/if}}
       {{#if logged}}
         {{!-- se estiver logado --}}
-        <a href="/" >Inicio</a>
         <a href="/carrinho" >Carrinho</a>
         <a href="/conta" >Gerenciar conta</a>
         <a href="/sair" >Sair</a>
@@ -82,10 +95,10 @@
         {{!-- se nao estiver logado  --}}
         {{#if login}}
           {{!-- se estiver na pagina de login  --}}
-          <a href="/" >Inicio</a>
+
           <a href="/cadastro" >Cadastro</a>
         {{else}}
-          <a href="/" >Inicio</a>
+
           <a href="/login" >Entrar</a>
         {{/if}}
       {{/if}}

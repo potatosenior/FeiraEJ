@@ -2,8 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const hbs = require('hbs');
+const session = require('cookie-session')
 const Produto = require('./models/Produto');
+const Cliente = require('./models/Cliente');
 const Cesta = require('./models/Cesta');
+const auth = require("./middleware/auth");
+const redirect_if_auth = require("./middleware/redirect_if_auth");
 
 const routes = require('./routes');
 
@@ -19,6 +23,13 @@ const public_dir = path.join(__dirname, "../public");
 // especifica qual é o diretorio publico/estatico no express
 app.use(express.static(public_dir));
 app.use(express.json());
+app.use(session({
+  name: "token",
+  secret: process.env.JWT_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 1000*60*60*24*365 } // milisec / 1 ano tempo de duração do cookie
+}))
 app.use(routes);
 
 // set views path (default = views)
@@ -30,58 +41,46 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
-// debugg
-const logged = false
+app.use((req, res, next) => {
+  // função q roda em todo request
+  req.session.isLogedIn = !!req.session.token;
+  req.session.save();
+  next();
+})
 // rotas para as paginas html
 app.get('', async (req, res) => {
-/*   const cestas = ;
-
-  if(cestas) {
-    cestas.forEach( async cesta => {
-      // pra cada cesta, cria uma prop noma 'produtos' com 
-      // o nome e a quantidade de cada produto na cesta
-      cesta.produtos = [];
-
-      cesta.Produtos.forEach( async produto => {
-        let prod = await Produto.findById(produto.Id);
-        if (!produto) return;
-
-        cesta.produtos.push({
-          Nome: prod.Nome,
-          Quantidade: produto.Quantidade
-        })
-      })
-    })
-  } */
-
   res.render('home', {
     home: true,
-    logged,
+    logged: req.session.isLogedIn,
     hortalicas: await Produto.find({Tipo: "hortalica"}) || [],
     graos: await Produto.find({Tipo: "grao"}) || [],
     frutas: await Produto.find({Tipo: "fruta"}) || [],
     cestas: await Cesta.find({}) || [],
   });
+  if (!req.session.token) {
+
+  }
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', redirect_if_auth, (req, res) => {
   res.render('login', {
     login: true,
-    logged
+    logged: req.session.isLogedIn
   });
 });
 
-app.get('/cadastro', (req, res) => {
+app.get('/cadastro', redirect_if_auth, (req, res) => {
   res.render('cadastro', {
     cadastro: true,
-    logged
+    logged: req.session.isLogedIn
   });
 });
 
-app.get('/conta', (req, res) => {
+app.get('/conta', auth, async (req, res) => {
   res.render('conta', {
     conta: true,
-    logged
+    dados: await Cliente.findById(req.session.id),
+    logged: req.session.isLogedIn
   });
 });
 
@@ -89,14 +88,14 @@ app.get('/carrinho', (req, res) => {
   res.render('carrinho', {
     conta: true,
     home: false,
-    logged
+    logged: req.session.isLogedIn
   });
 });
 
 app.get('/ajuda', (req, res) => {
   res.render('ajuda', {
     conta: true,
-    logged
+    logged: req.session.isLogedIn
   });
 });
 
@@ -107,7 +106,7 @@ app.get('*', (req, res) => {
     message: "Página não encontrada",
     button_text: "Voltar ao site",
     button_url: "/",
-    logged
+    logged: req.session.isLogedIn
   });
 });
 

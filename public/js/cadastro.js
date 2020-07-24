@@ -9,7 +9,7 @@ const password2 = document.querySelector("#password2");
 const api = "/CadastroCliente";
 
 const register = async (name, cpf, email, password, phone, adress) => {
-  console.log(name, cpf, email, password, phone, adress)
+  // console.log(name, cpf, email, password, phone, adress)
   return fetch(api, {
     headers: {
       "Accept": "application/json",
@@ -26,11 +26,15 @@ const register = async (name, cpf, email, password, phone, adress) => {
     })
   })
     .then( async response => {
+      console.log("response status: ", response.status);
+      if (response.status !== 200) {
+        throw new Error("Algum campo inválido!");
+      }
       return response.json()
-        .then( data => data )
-        .catch( error => error )
+        .then( data => {data} )
+        .catch( error => console.log("couldnt json ", error) )
     })
-    .catch( () => { message: "Verifique sua conexão com a internet ou tente mais tarde!" });
+    .catch( (error) => {return "Verifique sua conexão com a internet e tente mais tarde!"});
 }
 
 form.addEventListener("submit", async e => {
@@ -40,17 +44,14 @@ form.addEventListener("submit", async e => {
     password.focus()
     return alert('As senhas devem ser igual')
   } 
-  console.log('check 1')
-  await register(name.value, cpf.value, email.value, password.value, phone.value, adress.value)
-  .then( data => {
 
-    if (data.error) 
-      alert(data.error);
-    else {
+  await register(name.value, cpf.value, email.value, password.value, phone.value, adress.value)
+    .then( data => {
+      // usuario criado com sucesso
       window.location.href = "/";
-    }
-  })
-  .catch( error => {
-    alert(error.message);
-  });
+    })
+    .catch( error => {
+      console.log(error);
+      alert(error);
+    });
 });

@@ -1,6 +1,8 @@
 const express = require('express');
 const multer = require('multer');
 const uploadConfig = require('./Config/upload'); 
+const auth = require("./middleware/auth");
+const redirect_if_auth = require("./middleware/redirect_if_auth");
 
 const ClienteController = require('./controllers/ClienteController');
 const SessionController = require('./controllers/SessionController');
@@ -13,32 +15,33 @@ const routes = express.Router();
 const upload = multer(uploadConfig);
 
 //Cliente
-routes.post('/CadastroCliente',ClienteController.store);
-routes.get('/Clientes',ClienteController.index);
-routes.delete('/DeletaCliente',ClienteController.delete);
-routes.put('/AtualizaCliente',ClienteController.update);
+routes.post('/CadastroCliente', ClienteController.store);
+routes.get('/Clientes', auth, ClienteController.index);
+routes.delete('/DeletaCliente', auth, ClienteController.delete);
+routes.patch('/AtualizaCliente', auth, ClienteController.update);
 
 
 //Session
-routes.post('/Login', SessionController.store);
+routes.post('/login', SessionController.store);
+routes.post('/logout', SessionController.delete);
 
 
 //Produtos
-routes.get('/Produtos',ProdutosController.index);
+routes.get('/Produtos', ProdutosController.index);
 routes.post('/CadastraProduto', upload.single('Imagem'),ProdutosController.store);
 routes.put('/AtualizaProduto/:Id_Produto',ProdutosController.update);
 routes.delete('/DeletaProduto/:Id_Produto',ProdutosController.delete);
 
 
 //Carrinho
-routes.get('/ListaCarrinho',CarrinhoController.index);
-routes.post('/AdicionaProduto/:Id_Produto',CarrinhoController.store);
-routes.delete('/RemoveProdutoCarrinho/:id',CarrinhoController.remove);
+routes.get('/ListaCarrinho', CarrinhoController.index);
+routes.post('/AdicionaProduto/:Id_Produto', CarrinhoController.store);
+routes.delete('/RemoveProdutoCarrinho/:id', CarrinhoController.remove);
 
 
 //Compras
-routes.get('/Compras',CompraController.index);
-routes.delete('/Finalizar',CompraController.remove);
+routes.get('/Compras', auth, CompraController.index);
+routes.delete('/Finalizar', auth, CompraController.remove);
 
 
 //Cestas

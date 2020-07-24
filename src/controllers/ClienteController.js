@@ -27,26 +27,35 @@ function ValidaCPF(CPF){
 
 module.exports = {
     async store(req,res){
-        const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
-        
-        let cliente = await Cliente.findOne( { CPF } );
+        // const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
 
-        if(!cliente){    
+        const cliente_existente = await Cliente.findOne({CPF: req.body.CPF});
+
+        if(!cliente_existente){    
             if(true){//ValidaCPF(CPF)){
-                cliente = await Cliente.create({Nome, CPF, Email, Senha, Endereco, Celular});        
+                cliente = new Cliente(req.body);   
+                const token = await cliente.criarToken();
+                
+                // salva o token no cookie
+                req.session.token = token;
+                req.session._id = cliente._id;
+                req.session.save();
+
                 return res.json(cliente).send();
             }
         }
         return res.status(400).json( { error : "Cliente ja cadastrado com este CPF!" } ).send();
     },
 
-    async update(req,res){
-        const {Nome, Email, Senha, Endereco, Celular } = req.body;
-        const _CPF = req.headers._cpf;
-        
-        const cliente = await Cliente.findOneAndUpdate({CPF: _CPF}, {Nome, Email, Senha, Endereco, Celular});
-
-        return res.json(cliente);
+    async update(req,res, next){
+        try {        
+            const cliente = await Cliente.findByIdAndUpdate({_id: req.session.id}, req.body);
+            if (!cliente) return res.status(400);
+            console.log("checkk")
+            return res.status(200).send();
+        } catch (error) {
+            return res.status(500).send();
+        }
     },
 
     async delete(req,res){ //deletar carrinho dele tbm
