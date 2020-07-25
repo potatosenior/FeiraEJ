@@ -41,6 +41,8 @@
         width: 100%;
         margin-bottom: 42px;
     }
+
+
     
 div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="number"]{
         border: none;
@@ -51,6 +53,7 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
 		border-radius: 9px;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
         padding-left: 10px;
+        outline: none;
     }
 
     div#CaixaCadastro input[type="submit"]{
@@ -77,6 +80,15 @@ div#CaixaCadastro input[type="email"], input[type="password"], input[type="text"
     div#CaixaCadastro p#OpcaodeEntrar{
 	   font-weight: lighter;
 	   padding-left: 15%;
+    }
+
+    div#Endereço-total{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Bairro-númerocasa{
+        padding-left: 11%;
     }
     /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sua Conta</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Rochester&family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/2.0.6/stylesheets/locastyle.css">
     {{>head}}
     <link href="css/conta.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,12 +22,26 @@
                     <input value="{{dados.Nome}}" disabled autocomplete="off" type="text" name="" placeholder="Nome" id="Nome">
                     <p>E-mail:</p>
                     <input value="{{dados.Email}}" disabled autocomplete="off" type="email" name="" placeholder="E-mail" id="Email">
-                    <p>Endereço:</p>
-                    <input value="{{dados.Endereco}}" disabled autocomplete="off" type="text" name="" placeholder="Endereço" id="Endereco">
+                    <div id="Endereço-total">
+                            <div id="Endereço-casa">
+                                <p>Endereço:</p>
+                                <input value="{{dados.Endereco}}" disabled required type="text"  autocomplete="street-address" id="adress" placeholder="Rua ">
+                            </div>
+                            <div class="Bairro-númerocasa">
+                                <p>Bairro:</p>
+                                <input value="{{dados.Endereco}}" disabled required type="text" autocomplete="street-address" id="adress2" placeholder=" Bairro ">
+                            </div>
+                            <div class="Bairro-númerocasa">
+                                <p>Número:</p>
+                                <input value="{{dados.Endereco}}" disabled required type="number" autocomplete="off" id="adress-number" placeholder="Número">
+                            </div>
+                        </div>
+                    <!--<p>Endereço:</p>
+                    <input value="{{dados.Endereco}}" disabled autocomplete="off" type="text" name="" placeholder="Endereço" id="Endereco">-->
                     <p>Senha:</p>
                     <input value="{{dados.Email}}" disabled autocomplete="off" type="password" name="" placeholder="Senha atual: #">
                     <p>Celular:</p>
-                    <input value="{{dados.Celular}}" disabled autocomplete="off" type="tel" name="" placeholder="9 99999 9999" id="Celular">
+                    <input value="{{dados.Celular}}" disabled autocomplete="off" type="text" class="form-control cel-sp-mask"  name="" placeholder="9 99999 9999" id="Celular">
                     <input id="end" type="submit" name="" value="Editar">
                 </form>
             </div>
@@ -34,5 +50,8 @@
 
     {{>footer}}
     <script src="./js/conta.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </body>
 </html>
