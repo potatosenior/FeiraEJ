@@ -1,5 +1,6 @@
 //index, show, store, update, destroy
 const Cliente = require('../models/Cliente');
+const Carrinho = require('../models/Carrinho');
 
 function ValidaCPF(CPF){
     var a = 0, i, mult=10;
@@ -28,11 +29,12 @@ function ValidaCPF(CPF){
 module.exports = {
     async store(req,res){
         // const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
-
+        
         const cliente_existente = await Cliente.findOne({CPF: req.body.CPF});
 
         if(!cliente_existente){    
-            if(true){//ValidaCPF(CPF)){
+            if(ValidaCPF(req.body.CPF)){
+                
                 cliente = new Cliente(req.body);   
                 const token = await cliente.criarToken();
                 
@@ -43,6 +45,7 @@ module.exports = {
 
                 return res.json(cliente).send();
             }
+            return res.status(400).json({ error : "CPF invalido"}).send();
         }
         return res.status(400).json( { error : "Cliente ja cadastrado com este CPF!" } ).send();
     },
@@ -62,7 +65,7 @@ module.exports = {
         const {Id} = req.body;
 
         await Cliente.deleteOne({_id:Id});
-        await Carrinho.delete({Id_Cliente: Id});
+        await Carrinho.deleteMany({Id_Cliente: Id});
 
         return res.json( { message:  "Cliente deletado com sucesso"} );
     },
