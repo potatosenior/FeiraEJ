@@ -28,7 +28,7 @@ function ValidaCPF(CPF){
 
 module.exports = {
     async store(req,res){
-        // const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
+        //const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
         
 
         const cliente_existente = await Cliente.findOne({CPF: req.body.CPF});
