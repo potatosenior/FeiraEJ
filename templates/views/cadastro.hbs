@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Rochester&family=Sedgwick+Ave&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="//assets.locaweb.com.br/locastyle/2.0.6/stylesheets/locastyle.css">
         {{>head}}
         <link href="css/cadastro.css" rel="stylesheet">
         <title>Cadastro</title>
@@ -23,13 +25,25 @@
                         <input required type="password" autocomplete="new-password" id="password" minlength="6" placeholder="Digite sua senha">
                         <p>Confirmar senha:</p>
                         <input required type="password" autocomplete="new-password" id="password2" minlength="6" placeholder="Confirme sua senha">
-                        <p>Endereço:</p>
-                        <input required type="text" autocomplete="street-address" id="adress" placeholder="Digite seu endereço ">
+                        <div id="Endereço-total">
+                            <div id="Endereço-casa">
+                                <p>Endereço:</p>
+                                <input required type="text"  autocomplete="street-address" id="adress" placeholder="Digite seu endereço ">
+                            </div>
+                            <div class="Bairro-númerocasa">
+                                <p>Bairro:</p>
+                                <input required type="text" autocomplete="street-address" id="adress2" placeholder="Digite seu Bairro ">
+                            </div>
+                            <div class="Bairro-númerocasa">
+                                <p>Número:</p>
+                                <input required type="number" autocomplete="off" id="adress-number" placeholder="Digite o número">
+                            </div>
+                        </div>
                         <p>Celular:</p>
-                        <input required type="number" autocomplete="tel" id="phone" placeholder="99 99999 9999" minlength="10" maxlength="10">
+                        <input required type="text" class="form-control cel-sp-mask" placeholder="Ex.: (00) 00000-0000">
                         <p>CPF: </p>
-                        <input required type="number" autocomplete="off" id="cpf" placeholder="Digite seu CPF" minlength="11" maxlength="11">
-                        <p id="OpcaodeEntrar">Você ja possui uma conta? <a href="#">Clique aqui para entrar!</a></p>
+                        <input required type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00">
+                        <p id="OpcaodeEntrar">Você ja possui uma conta? <a href="http://localhost:3333/login">Clique aqui para entrar!</a></p>
                         <input required type="submit" name="" value="Cadastro">
                     </form>
                 </div>
@@ -38,5 +52,8 @@
 
         {{>footer}}
         <script src="./js/cadastro.js"></script>
+        <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     </body>
 </html>

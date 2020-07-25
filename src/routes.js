@@ -16,7 +16,7 @@ const upload = multer(uploadConfig);
 
 //Cliente
 routes.post('/CadastroCliente', ClienteController.store);
-routes.get('/Clientes', auth, ClienteController.index);
+routes.get('/Clientes',auth ,ClienteController.index);
 routes.delete('/DeletaCliente', auth, ClienteController.delete);
 routes.patch('/AtualizaCliente', auth, ClienteController.update);
 

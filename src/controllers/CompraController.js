@@ -4,7 +4,7 @@ const Cesta = require('../models/Cesta');
 
 async function updateEstoqueProduto(Estoque, Id_Produto){
     await Produto.updateOne({_id:Id_Produto}, {Estoque});
-    return ({ message: "Produto atualizado com sucesso"});    
+    return ({ message: "Produto atualizado com sucesso" });    
 }
 
 module.exports = {
