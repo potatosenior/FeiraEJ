@@ -51,7 +51,7 @@ module.exports = {
         try {        
             const cliente = await Cliente.findByIdAndUpdate({_id: req.session.id}, req.body);
             if (!cliente) return res.status(400);
-            console.log("checkk")
+
             return res.status(200).send();
         } catch (error) {
             return res.status(500).send();

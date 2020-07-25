@@ -59,14 +59,13 @@ const criar_cestas = async () => {
 }
 
 const consertar = async () => {
-  const produtos = await Produto.find({Tipo: "grao"});
+  const cestas = await Cesta.find({});
 
-  for (let idx = 0; idx < produtos.length - 1; idx++) {
-    console.log(produtos[idx].Preco)
-    produtos[idx].Preco = Number( (produtos[idx].Preco / 10).toFixed(2) );
-    await produtos[idx].save().catch(err => console.log(err.message));
+  for (let idx = 0; idx < cestas.length - 1; idx++) {
+    cestas[idx].Cesta = true;   
+    console.log(cestas[idx].Cesta)
+    await cestas[idx].save();
   }
-
 }
 
 mongoose.connect('mongodb+srv://FeiraEJ:FeiraEJ@feiraej.wr1cu.mongodb.net/FeiraEJ?retryWrites=true&w=majority', {
@@ -74,8 +73,5 @@ mongoose.connect('mongodb+srv://FeiraEJ:FeiraEJ@feiraej.wr1cu.mongodb.net/FeiraE
   useUnifiedTopology: true,
   useCreateIndex: true,
 }).then(async () => {
-  await criar_cestas().then(() => mongoose.disconnect());
+  await consertar().then(() => mongoose.disconnect());
 })
-
-
-

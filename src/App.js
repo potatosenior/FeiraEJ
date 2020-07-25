@@ -2,10 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const hbs = require('hbs');
-const session = require('cookie-session')
+const session = require('cookie-session');
+
 const Produto = require('./models/Produto');
 const Cliente = require('./models/Cliente');
 const Cesta = require('./models/Cesta');
+const { index } = require('./controllers/CarrinhoController');
 const auth = require("./middleware/auth");
 const redirect_if_auth = require("./middleware/redirect_if_auth");
 
@@ -84,17 +86,18 @@ app.get('/conta', auth, async (req, res) => {
   });
 });
 
-app.get('/carrinho', (req, res) => {
+app.get('/carrinho', async (req, res) => {
+  const carrinho = await index(req);
+
   res.render('carrinho', {
-    conta: true,
-    home: false,
-    logged: req.session.isLogedIn
+    logged: req.session.isLogedIn,
+    produtos: carrinho.Produtos,
+    subtotal: carrinho.Subtotal
   });
 });
 
 app.get('/ajuda', (req, res) => {
   res.render('ajuda', {
-    conta: true,
     logged: req.session.isLogedIn
   });
 });

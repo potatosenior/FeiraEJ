@@ -8,8 +8,6 @@ const ClienteSchema = new mongoose.Schema({
     Senha: String,
     Endereco: {
         Bairro: String,
-        Tipo_Logadouro: String,
-        Nome_Logadouro: String,
         Numero: Number,
         Complemento: String
     },
@@ -22,6 +20,7 @@ const ClienteSchema = new mongoose.Schema({
             }
         }
     ],
+    Carrinho: mongoose.Schema.Types.ObjectId
 });
 
 ClienteSchema.methods.criarToken = async function() {

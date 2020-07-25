@@ -67,15 +67,20 @@
     padding: 10px;
     border-bottom: solid #e6e6e6 1px;
     align-items: center;
+    overflow: hidden;
+    transition: all 0.5s;
   }
     .carrinho__item img {
-      width: 15%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
       border-radius: 10px;
     }
     .carrinho__item h2 {
       width: 30%;
       text-align: justify;
       padding: 4px;
+      font-size: 1.8em;
     }
     /* ------ preço ---------  */
     .carrinho__item h3 {
@@ -86,6 +91,7 @@
     .carrinho__item svg {
       padding: 2px;
       cursor: pointer;
+      overflow: visible;
     }
     /* ------------- quantidade ------------  */
     .carrinho__item .quantity_selector {
@@ -97,12 +103,16 @@
       /* border: 1px solid #121212; */
       padding: 5px;
     }
+    .carrinho__item .quantity_input {
+      width: 100%;
+    }
     .carrinho__item .quantity_selector div {
       display: flex;
       flex-direction: row;
       justify-content: center;
-      width: 100%;
+      /* width: 200px; */
       border: 1px solid #e6e6e6;
+      padding: 0px 5px;
     }
     .carrinho__item .quantity_selector span {
       margin-top: 5px;
@@ -111,11 +121,12 @@
     }
     .carrinho__item .quantity_selector input {
       text-align: center;
-      width: 20px;
+      /* width: 40px; */
       background: none;
       padding: 0;
       border: none;
       outline: none;
+      /* border: dotted red; */
     }
     .carrinho__item .quantity_selector .quantity_form {
       background: none;
@@ -129,6 +140,39 @@
       font-weight: 200;
       cursor: pointer;
     }
+ /* ---------------------- ANIMAÇAO DE REMOVER ITEM --------------  */
+.hidden {
+  display: none !important;
+  max-width: 0px !important;
+  overflow: hidden !important;
+}
+.shown {
+  max-width: 100% !important;
+}
+.remove {
+  max-height: 0;
+  transform: scaleY(0);
+  display: block;
+  line-height:0;
+  overflow: hidden;
+}
+
+.delete {
+  display: flex;
+  overflow: hidden !important;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 300;
+  max-width: 0;
+  transition: transform 0.5s;
+  transition: max-height 0.5s;
+}
+
 
 /* -------------------- RESPONSIVIDADE ----------------  */
 
@@ -157,11 +201,15 @@
 
 }
 @media(max-width: 855px) {
+  .carrinho__checkout h3 {
+    font-size: 1.5em;
+  }
   .carrinho__items {
     width: 60%;
   }
   .carrinho__item img {
-    width: 20%;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
   }
   .carrinho__item h2 {
@@ -171,7 +219,7 @@
     font-size: 0.9em;
   }
   .carrinho__item .quantity_selector span {
-    font-size: 0.6em;
+    font-size: 0.7em;
   }
 }
  /* mobile */
@@ -183,12 +231,16 @@
     flex-direction: column;
   }
   .carrinho__items {
-    width: 95%;
+    padding: 0px;
+    width: 100%;
+  }
+  .carrinho__item p {
+    font-size: 0.5em !important;
   }
   .carrinho__checkout {
     margin-top: 30px;
     width: 95%;
-    right: 0px;
+    right: 3%;
   }
 
 }

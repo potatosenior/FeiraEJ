@@ -1,21 +1,25 @@
-<div class="main-section-item" id="{{_id}}">
+<div class="main-section-item produto" id="{{_id}}" data-tipo="produto" >
   <img src="{{ImagemUrl}}"/>
 
   <h2>{{Nome}}</h2>
 
-  <span>R$<span class="preço">{{Preco}} </span>por <span class="medida">K/g</span></span>
+  <span>R$<span class="preço" data-preco="{{Preco}}">{{Preco}}</span> por <span class="medida">K/g</span></span>
 
-  <div class="quatity_container">
-    <form class="quantity_form" method="POST">
-      <input type="submit" value="-" name="pop" >
+  <div class="quatity_container" >
+    <form class="quantity_form" name="decrease" >
+      <input type="button" value="-" name="pop">
     </form>
+    <div style="display: inline-block; position: relative; height: 100%">
+      <input size="1" autocomplete="off" type="number" value="100" class="quantity_input" maxlength="4" name="quantity" >
+      <span style="position: absolute; left: 12px; margin-left: 50%; top: 13px; text-align: center; width: 0px;height: 0px; cursor: text">g</span>
+    </div>
 
-    <input size="1" autocomplete="off" type="number" value="1" class="quantity_input" maxlength="3" min="1">
-
-    <form class="quantity_form" method="POST">
-      <input type="submit" value="+" name="pop" >
+    <form class="quantity_form" name="increase">
+      <input type="button" value="+" name="pop">
     </form>
   </div>
 
-  <button>Adicionar ao carrinho</button>
+  <span style="text-align: center; color: #999999"><span style="font: inherit; color: inherit;" data-estoque="{{Estoque}}">{{Estoque}}</span>disponíveis</span>
+
+  <button name="add" type="submit">Adicionar ao carrinho</button>
 </div>
