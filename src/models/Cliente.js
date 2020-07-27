@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
 
 const ClienteSchema = new mongoose.Schema({
     Nome : String,
@@ -11,7 +12,7 @@ const ClienteSchema = new mongoose.Schema({
         Numero: Number,
         Complemento: String
     },
-    Celular: Number,
+    Celular: String,
     tokens: [
         {
             token: {
@@ -33,6 +34,17 @@ ClienteSchema.methods.criarToken = async function() {
     await user.save();
   
     return token;
-  }
+}
+
+ClienteSchema.pre('save', async function (next){
+    const user = this;
+    // verifica se a senha foi modificada
+    if (user.isModified('Senha')) {
+        // descriptografa
+        user.Senha = await bcrypt.hash(user.Senha, 8);
+    }
+  
+    next();
+  })
 
 module.exports = mongoose.model('Cliente', ClienteSchema);

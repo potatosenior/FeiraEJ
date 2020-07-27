@@ -1,0 +1,48 @@
+.main_erro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 60vh;
+}
+
+.main_erro h1 {
+  font-size: 9em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.main_erro a {
+  color: #121212;
+  background-color: #80FA5C;
+  font-weight: 300;
+  
+  padding: 15px 40px 15px 40px;
+  border-radius: 10px;
+  display: none;
+}
+
+.hidde {
+  overflow: hidden !important;
+  visibility: hidden;
+  display: none !important;
+}
+.show {
+  visibility: visible !important;
+  display: block !important;
+}
+
+.main_erro div {
+  width: 80%;
+  overflow: hidden !important;
+  background-image: linear-gradient(to right, #5aff28 , #80FA5C);
+  align-self: flex-start;
+  height: 20px;
+  margin-left: 10%;
+  max-width: 0;
+  transition: max-width 3s;
+}
+
+.load_active {
+  max-width: 80% !important;
+}

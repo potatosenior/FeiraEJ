@@ -171,6 +171,14 @@
   margin-bottom: 10px;
   outline: none;
 }
+.added {
+  color: white;
+  background-color: #1e56c9 !important;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
 /* ---------------------- QUANTIDADE --------------  */
 .quatity_container {
   display: flex;
@@ -284,4 +292,10 @@
     margin-bottom: 30px;
   }
 
+}
+
+/* --------- ANIMAÇOES ------------------  */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

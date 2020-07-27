@@ -62,7 +62,7 @@ CarrinhoSchema.methods.add_item = async function(id, qntd, type, name, stock, pr
         }
     }
     // item nao existente no carrinho
-    console.log("type: ", type)
+
     if (type !== "cesta")
         carrinho.Produtos.push({
             Id: id, 

@@ -45,7 +45,7 @@ hbs.registerPartials(partialsPath);
 
 app.use((req, res, next) => {
   // função q roda em todo request
-  req.session.isLogedIn = !!req.session.token;
+  req.session.isLogedIn = !!(req.session.token && req.session.id);
   req.session.save();
   next();
 })
@@ -98,6 +98,12 @@ app.get('/carrinho', async (req, res) => {
 
 app.get('/ajuda', (req, res) => {
   res.render('ajuda', {
+    logged: req.session.isLogedIn
+  });
+});
+
+app.get('/compra', auth, (req, res) => {
+  res.render('compra', {
     logged: req.session.isLogedIn
   });
 });

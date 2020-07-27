@@ -28,23 +28,20 @@ function ValidaCPF(CPF){
 
 module.exports = {
     async store(req,res){
-        //const {Nome, CPF, Email, Senha, Endereco, Celular } = req.body;  
-        
-
         const cliente_existente = await Cliente.findOne({CPF: req.body.CPF});
 
         if(!cliente_existente){    
-            if(ValidaCPF(req.body.CPF)){
+            if( ValidaCPF(req.body.CPF.replace(/\D/g, "")) ){
                 
                 cliente = new Cliente(req.body);   
                 const token = await cliente.criarToken();
                 
                 // salva o token no cookie
                 req.session.token = token;
-                req.session._id = cliente._id;
+                req.session.id = cliente._id;
                 req.session.save();
 
-                return res.json(cliente).send();
+                return res.status(200).send();
             }
             return res.status(400).json({ error : "CPF invalido"}).send();
         }
@@ -67,6 +64,11 @@ module.exports = {
 
         await Cliente.deleteOne({_id:Id});
         await Carrinho.deleteMany({Id_Cliente: Id});
+
+        req.session.id = null;
+        req.session.token = null;
+        req.session.carrinho = null;
+        await req.session.save();
 
         return res.json( { message:  "Cliente deletado com sucesso"} );
     },

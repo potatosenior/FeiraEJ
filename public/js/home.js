@@ -86,8 +86,16 @@ produtos.forEach( produto => {
   })
 
   button.addEventListener("click", async () => {
+    button.disabled = "disabled";
+    button.classList.toggle("adding");
+    button.innerHTML = 'Adicionando <i class="fa fa-spinner spin" aria-hidden="true"></i>'
+    
     add_item(produto.id, Number(input_qntd.value), "produto")
-      // .then(result => alert(result))
+      .then(result => {
+        button.innerHTML = 'Adicionado <i class="fa fa-check" aria-hidden="true"></i>';
+        button.classList.toggle("adding");
+        button.classList.toggle("added")
+      })
       .catch(erro => alert(erro))
   })
 })
@@ -133,8 +141,16 @@ cestas.forEach( cesta => {
   });
 
   button.addEventListener("click", async () => {
+    button.disabled = "disabled";
+    button.classList.toggle("adding");
+    button.innerHTML = 'Adicionando <i class="fa fa-spinner spin" aria-hidden="true"></i>'
+    
     add_item(cesta.id, Number(input_qntd.value), "cesta")
-      .then(result => alert(result))
+      .then(result => {
+        button.innerHTML = 'Adicionado <i class="fa fa-check" aria-hidden="true"></i>';
+        button.classList.toggle("adding");
+        button.classList.toggle("added")
+      })
       .catch(erro => alert(erro))
-  });
+  })
 })

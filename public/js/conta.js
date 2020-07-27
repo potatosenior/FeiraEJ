@@ -3,7 +3,9 @@ const form = document.querySelector("form");
 const api = "/AtualizaCliente"
 const Nome = document.querySelector("#Nome");
 const Email = document.querySelector("#Email");
-const Endereco = document.querySelector("#Endereco");
+const Endereco1 = document.querySelector("#adress");
+const Endereco2 = document.querySelector("#adress2");
+const Endereco3 = document.querySelector("#adress3");
 const Celular = document.querySelector("#Celular");
 
 const save = async (Nome, Email, Endereco, Celular) => {
@@ -41,9 +43,13 @@ form.addEventListener("submit", async (e) => {
     button.value = "Salvar";
   } else {
     button.disabled = "disabled";
-    await save(Nome.value, Email.value, Endereco.value, Celular.value)
+    let Endereco = {
+      Complemento: Endereco1.value,
+      Bairro: Endereco2.value,
+      Numero: Endereco3.value,
+    }
+    await save(Nome.value, Email.value, Endereco, Celular.value)
       .then( result => {
-        console.log(result)
         alert(result);
       })
       .catch(erro => {

@@ -41,8 +41,22 @@ module.exports = {
             // salva no db se logado
             carrinho.save();
         }
-
+        // console.log(carrinho)
         return carrinho;
+    },
+
+    async subtotal(req, res){
+        const cliente = await Cliente.findById(req.session.id);
+        let carrinho;
+
+        if (cliente) {
+            carrinho = await Carrinho.findById(cliente.Carrinho);
+        } else {
+            carrinho = Carrinho(req.session.carrinho);
+        }
+        if (!carrinho) return {error: "Carrinho vazio"};
+
+        res.status(200).send({Subtotal: carrinho.Subtotal});
     },
     
     async store(req,res){
@@ -81,12 +95,11 @@ module.exports = {
 
         if (!carrinho) {
             // nao tem carrinho
-            console.log("Nao tem carrinho, criar um!")
             carrinho = new Carrinho();
             if (cliente) {
                 Carrinho.Id_Cliente = cliente._id;
                 cliente.Carrinho = carrinho._id;
-                console.log("Cria e salva o carrinho no cliente ", cliente.Carrinho);
+        
                 await cliente.save();
             }
         } 
@@ -96,7 +109,6 @@ module.exports = {
 
         if (cliente) {
             // se tiver logado, salva o carrinho no banco de dados
-            console.log("salva o carrinho")
             carrinho.save();
         } else {
             req.session.carrinho = carrinho;

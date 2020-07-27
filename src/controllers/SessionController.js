@@ -1,15 +1,22 @@
 //index, show, store, update, destroy
+const bcrypt = require('bcryptjs');
 const Cliente = require('../models/Cliente');
 const Carrinho = require('../models/Carrinho');
 
 module.exports = {
     async store(req,res){
-        // const { Email, Senha } = req.body;      
-        const cliente = await Cliente.findOne( req.body );
+        const { Email, Senha } = req.body;      
+        const cliente = await Cliente.findOne({Email: Email});
         
         if(!cliente){
             return res.status(400).json( { error : "Usário ou senha errados"} );
         }
+
+        // verifica se a senha é igual
+        const isMatch = await bcrypt.compare(Senha, cliente.Senha);
+
+        if (!isMatch)
+            return res.status(400).json( { error : "Usário ou senha errados"} );
         
         const token = await cliente.criarToken();
         

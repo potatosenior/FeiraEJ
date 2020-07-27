@@ -25,15 +25,15 @@
                     <div id="Endereço-total">
                             <div id="Endereço-casa">
                                 <p>Endereço:</p>
-                                <input value="{{dados.Endereco}}" disabled required type="text"  autocomplete="street-address" id="adress" placeholder="Rua ">
+                                <input value="{{dados.Endereco.Complemento}}" disabled required type="text"  autocomplete="street-address" id="adress" placeholder="Rua ">
                             </div>
                             <div class="Bairro-númerocasa">
                                 <p>Bairro:</p>
-                                <input value="{{dados.Endereco}}" disabled required type="text" autocomplete="street-address" id="adress2" placeholder=" Bairro ">
+                                <input value="{{dados.Endereco.Bairro}}" disabled required type="text" autocomplete="street-address" id="adress2" placeholder=" Bairro ">
                             </div>
                             <div class="Bairro-númerocasa">
                                 <p>Número:</p>
-                                <input value="{{dados.Endereco}}" disabled required type="number" autocomplete="off" id="adress-number" placeholder="Número">
+                                <input value="{{dados.Endereco.Numero}}" disabled required type="number" autocomplete="off" id="adress3" placeholder="Número">
                             </div>
                         </div>
                     <!--<p>Endereço:</p>

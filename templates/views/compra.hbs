@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{>head}}
+  <link href="./css/compra.css" rel="stylesheet">
+  <title>Compra finalizada!</title>
+</head>
+<body>
+  {{>header}}
+  
+  <div class="main_div">
+    <div class="main_erro">
+      <h3>Finalizando compra...</h3>
+      <i id="check" class="fa fa-check fa-5x hidde" aria-hidden="true"></i>
+      <div id="bar">
+      </div>
+      <a id="btn" href="/" class="shadowG">Comprar mais</a>
+    </div>
+  </div>
+  <script>
+    document.querySelector("#bar").classList.toggle("load_active");
+    setTimeout(async () => {
+      await fetch("/Finalizar", {
+          method: "DELETE"
+        })
+          .then( async response => {
+            if (response.status !== 200) throw new Error("response status: " + response.status);
+            document.querySelector("#bar").classList.toggle("hidde");
+            document.querySelector("#btn").classList.add("show");
+            document.querySelector("#check").classList.remove("hidde");
+            document.querySelector("h3").innerHTML = "Compra realizada com sucesso!";
+            return "Compra realizada com sucesso!"
+          })
+          .catch( (error) => "Verifique sua conexão com a internet ou tente mais tarde!");
+    }, 3000)
+  </script>
+  {{>footer}}
+</body>
+</html>

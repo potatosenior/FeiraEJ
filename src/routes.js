@@ -34,7 +34,7 @@ routes.delete('/DeletaProduto/:Id_Produto',ProdutosController.delete);
 
 
 //Carrinho
-routes.get('/ListaCarrinho', CarrinhoController.index);
+routes.get('/Subtotal', CarrinhoController.subtotal);
 routes.post('/AdicionaProduto/:id', CarrinhoController.store);
 routes.patch('/AtualizaProduto/:id', CarrinhoController.update);
 routes.delete('/RemoveProdutoCarrinho/:id', CarrinhoController.remove);

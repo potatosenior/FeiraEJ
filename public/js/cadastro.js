@@ -1,7 +1,9 @@
 const form = document.querySelector("form");
 const name = document.querySelector("#name");
 const cpf = document.querySelector("#cpf");
-const adress = document.querySelector("#adress");
+const Endereco1 = document.querySelector("#adress");
+const Endereco2 = document.querySelector("#adress2");
+const Endereco3 = document.querySelector("#adress3");
 const phone = document.querySelector("#phone");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
@@ -26,13 +28,10 @@ const register = async (name, cpf, email, password, phone, adress) => {
     })
   })
     .then( async response => {
-      console.log("response status: ", response.status);
-      if (response.status !== 200) {
-        throw new Error("Algum campo inválido!");
+      if (response.status != 200) {
+        return {error: "Algum campo inválido!"};
       }
-      return response.json()
-        .then( data => {data} )
-        .catch( error => console.log("couldnt json ", error) )
+      return "Sucesso"
     })
     .catch( (error) => {return "Verifique sua conexão com a internet e tente mais tarde!"});
 }
@@ -44,14 +43,21 @@ form.addEventListener("submit", async e => {
     password.focus()
     return alert('As senhas devem ser igual')
   } 
-
-  await register(name.value, cpf.value, email.value, password.value, phone.value, adress.value)
+  let adress = {
+    Complemento: Endereco1.value,
+    Bairro: Endereco2.value,
+    Numero: Endereco3.value,
+  }
+  await register(name.value, cpf.value, email.value, password.value, phone.value, adress)
     .then( data => {
+      if (data.error){
+        return alert(data.error);
+      }
       // usuario criado com sucesso
+      console.log('sucess')
       window.location.href = "/";
     })
     .catch( error => {
-      console.log(error);
       alert(error);
     });
 });
