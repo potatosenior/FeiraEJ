@@ -97,6 +97,13 @@
       cursor: pointer;
       overflow: visible;
     }
+    .carrinho__item svg:hover {
+      fill: #FF1654;
+    }
+    .disabled {
+      cursor: wait !important;
+      fill: #FF1654 !important;
+    }
     /* ------------- quantidade ------------  */
     .carrinho__item .quantity_selector {
       display: flex;

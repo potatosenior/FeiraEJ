@@ -167,6 +167,7 @@ items.forEach( item => {
     })
   );
   button_remove.addEventListener("click", async () => {
+    button_remove.classList.add("disabled");
     await remove_item(item.id)
       .then(result => {
         // alert(result)
@@ -248,6 +249,7 @@ cestas.forEach( cesta => {
   }) */
 
   button_remove.addEventListener("click", async () => {
+    button_remove.disabled = true;
     await remove_item(cesta.id)
       .then(result => {
         // alert(result)
