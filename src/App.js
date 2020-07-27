@@ -51,13 +51,14 @@ app.use((req, res, next) => {
 })
 // rotas para as paginas html
 app.get('', async (req, res) => {
+  // $gt é o valor minimo, no caso só > 0 vao aparecer
   res.render('home', {
     home: true,
     logged: req.session.isLogedIn,
-    hortalicas: await Produto.find({Tipo: "hortalica"}) || [],
-    graos: await Produto.find({Tipo: "grao"}) || [],
-    frutas: await Produto.find({Tipo: "fruta"}) || [],
-    cestas: await Cesta.find({}) || [],
+    hortalicas: await Produto.find({Tipo: "hortalica", Estoque: {$gt: 0}}) || [],
+    graos: await Produto.find({Tipo: "grao", Estoque: {$gt: 0}}) || [],
+    frutas: await Produto.find({Tipo: "fruta", Estoque: {$gt: 0}}) || [],
+    cestas: await Cesta.find({Estoque: {$gt: 0}}) || [],
   });
   if (!req.session.token) {
 

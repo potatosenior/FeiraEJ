@@ -16,15 +16,22 @@
       <h1>Meu carrinho</h1>
 
       <div class="carrinho__container">
-
         <div class="carrinho__items shadowG">
-          {{#each produtos}}
-            {{#if this.Cesta}}
-              {{>carrinho_cesta this}}
-            {{else}}
-              {{>carrinho_item this}}
-            {{/if}}
-          {{/each}}
+        {{#if produtos}}
+            {{#each produtos}}
+              {{#if this.Cesta}}
+                {{>carrinho_cesta this}}
+              {{else}}
+                {{>carrinho_item this}}
+              {{/if}}
+            {{/each}}
+          
+        {{else}}
+          <div style="display: flex;flex-direction: column;  justify-content: center; align-items: center; background-color: #fff; padding: 20px">
+            <img src="./img/emptycart.png" />
+            <h3>Está meio vazio por aqui!</h3>
+          </div>
+        {{/if}}
         </div>
 
         <div class="carrinho__checkout shadowG">
@@ -48,8 +55,9 @@
             <span>Total</span>
             <span>R$ <span data-preco="{{subtotal}}" data-subtotal="{{subtotal}}">{{subtotal}}</span></span>
           </div>
-
-          <a href="/compra" id="buy">Continuar a compra</a>
+          {{#if produtos}}
+            <a href="/compra" id="buy">Continuar a compra</a>
+          {{/if}}
         </div>
 
       </div>

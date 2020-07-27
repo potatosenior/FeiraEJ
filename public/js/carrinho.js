@@ -43,18 +43,6 @@ const add_item = async (_id, quantidade, tipo) => {
     .catch( (error) => "Verifique sua conexão com a internet ou tente mais tarde!");
 }
 
-/* const buy = async () => {
-  return fetch("/Finalizar", {
-    method: "DELETE"
-  })
-    .then( async response => {
-      if (response.status !== 200) throw new Error("response status: " + response.status);
-      await update_subtotal();
-      return "Compra realizada com sucesso!"
-    })
-    .catch( (error) => "Verifique sua conexão com a internet ou tente mais tarde!");
-} */
-
 const update_item = async (_id, quantidade) => {
   return fetch("/AtualizaProduto/" + encodeURI(_id), {
     headers: {
@@ -79,6 +67,7 @@ const remove_item = async (_id, quantidade, tipo) => {
     .then( async response => {
       if (response.status !== 200) throw new Error("response status: " + response.status);
       await update_subtotal();
+
       return "Item removido com sucesso!"
     })
     .catch( (error) => "Verifique sua conexão com a internet ou tente mais tarde!");
@@ -86,7 +75,8 @@ const remove_item = async (_id, quantidade, tipo) => {
 // seleciona o botao de comprar
 /* document.querySelector("#buy").addEventListener("click", async (e) => {
   e.preventDefault();
-  await buy();
+  const items = document.querySelector(".carrinho__item");
+  console.log(items)
 }); */
 //seleciona todos items
 const items = document.querySelectorAll(".carrinho__item.produto");
@@ -180,7 +170,20 @@ items.forEach( item => {
         div.classList.toggle("shown");
         setTimeout(() => {
           item.classList.toggle("remove")
-          setTimeout(() => item.remove(), 500)
+          setTimeout(() => {
+            item.remove();
+            // verifica se ficou vazio
+            const items = document.querySelector(".carrinho__item");
+            if (!items) {
+              // ta vazio!
+              const container = document.querySelector(".carrinho__items");
+              container.innerHTML = `<div style="display: flex;flex-direction: column;  justify-content: center; align-items: center; background-color: #fff; padding: 20px">
+              <img src="./img/emptycart.png" />
+              <h3>Está meio vazio por aqui!</h3>
+            </div>`
+            document.querySelector("#buy").remove();
+            }
+          }, 500);
         }, 2000);
       })
       .catch(erro => alert(erro));
@@ -249,7 +252,7 @@ cestas.forEach( cesta => {
   }) */
 
   button_remove.addEventListener("click", async () => {
-    button_remove.disabled = true;
+    button_remove.classList.add("disabled");
     await remove_item(cesta.id)
       .then(result => {
         // alert(result)
@@ -263,7 +266,20 @@ cestas.forEach( cesta => {
         div.classList.toggle("shown");
         setTimeout(() => {
           cesta.classList.toggle("remove")
-          setTimeout(() => cesta.remove(), 500)
+          setTimeout(() => {
+            cesta.remove();
+            // verifica se ficou vazio
+            const items = document.querySelector(".carrinho__item");
+            if (!items) {
+              // ta vazio!
+              const container = document.querySelector(".carrinho__items");
+              container.innerHTML = `<div style="display: flex;flex-direction: column;  justify-content: center; align-items: center; background-color: #fff; padding: 20px">
+              <img src="./img/emptycart.png" />
+              <h3>Está meio vazio por aqui!</h3>
+            </div>`
+            document.querySelector("#buy").remove();
+            }
+          }, 500);
         }, 2000);
       })
       .catch(erro => alert(erro));
